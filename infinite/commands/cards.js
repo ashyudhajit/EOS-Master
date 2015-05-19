@@ -380,7 +380,8 @@ module.exports = {
             For more information about PSGO:<br><br>\
             /psgohelp rank - Tells you about how much the top 10 users get each month.\
             /psgohelp points - Information about what are points and how they are calculated.\
-            /psgohelp rarity - Tell information about a rarity of cards.\
+            /psgohelp rarity - Tell information about a rarity of cards.<br><br>\
+            PSGO was originally created by CreaturePhil for infinite.psim.us\
             ');
     }
 };
