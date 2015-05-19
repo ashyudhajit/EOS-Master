@@ -1,4 +1,4 @@
-var userModel = require('../mongo').userModel;
+﻿var userModel = require('../mongo').userModel;
 
 // Custom symbol and hiding
 
@@ -156,6 +156,7 @@ Users.Connection.prototype.onDisconnect = function () {
 // System Operators
 
 Users.User.prototype.hasSysopAccess = function() {
+<<<<<<< HEAD
     if (['naten2006', 'irraquated', 'dabicboi', 'fender'].indexOf(this.userid) >= 0) {
         return true;
     }

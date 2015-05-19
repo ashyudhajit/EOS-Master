@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Gen 2 scripts.
  */
 exports.BattleScripts = {
@@ -155,7 +155,8 @@ exports.BattleScripts = {
 				didSomething = true;
 			}
 			if (damage === false || damage === null) {
-				if (damage === false) {
+
+				if (damage === false && !isSecondary) {
 					this.add('-fail', target);
 				}
 				this.debug('damage calculation interrupted');
