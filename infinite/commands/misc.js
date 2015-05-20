@@ -7,6 +7,7 @@ var color = require('../color');
 var Economy = require('../economy');
 var Profile = require('../profile');
 var User = require('../mongo').userModel;
+var forever = require('forever');
 
 var emotes = require('../emoticons').emotes;
 
@@ -101,7 +102,24 @@ module.exports = {
             ');
         }
     },
-
+    
+    restart: function (target, room, user) {
+		if (!this.can('lockdown')) return false;
+		if (!Rooms.global.lockdown) {
+			return this.sendReply('For safety reasons, /restart can only be used during lockdown.');
+		}
+		if (CommandParser.updateServerLock) {
+			return this.sendReply('Wait for /updateserver to finish before using /restart.');
+		}
+		try {
+			this.logModCommand(user.name + ' used /restart');
+			Rooms.global.send('|refresh|');
+			forever.restart('app.js');
+		} catch(e) {
+			return this.sendReply('/restart requires the "forever" module.');
+		}
+	},
+	
     d: 'poof',
     cpoof: 'poof',
     poof: function (target, room, user) {
