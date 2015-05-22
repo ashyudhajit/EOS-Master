@@ -156,7 +156,7 @@ exports.BattleScripts = {
 			}
 			if (damage === false || damage === null) {
 
-				if (damage === false && !isSecondary) {
+				if (damage === false && !isSecondary && !isSelf) {
 					this.add('-fail', target);
 				}
 				this.debug('damage calculation interrupted');

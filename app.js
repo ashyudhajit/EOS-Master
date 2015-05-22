@@ -235,7 +235,7 @@ global.ResourceMonitor = {
 			if (typeof value === 'boolean') bytes += 4;
 			else if (typeof value === 'string') bytes += value.length * 2;
 			else if (typeof value === 'number') bytes += 8;
-			else if (typeof value === 'object' && objectList.indexOf(value) === -1) {
+			else if (typeof value === 'object' && objectList.indexOf(value) < 0) {
 				objectList.push(value);
 				for (var i in value) stack.push(value[i]);
 			}
@@ -363,7 +363,7 @@ if (Config.crashguard) {
 	var lastCrash = 0;
 	process.on('uncaughtException', function (err) {
 		var dateNow = Date.now();
-		var quietCrash = require('./crashlogger.js')(err, 'The main process');
+		var quietCrash = require('./infinite/override/crashlogger.js')(err, 'The main process');
 		quietCrash = quietCrash || ((dateNow - lastCrash) <= 1000 * 60 * 5);
 		lastCrash = Date.now();
 		if (quietCrash) return;
@@ -406,7 +406,7 @@ fs.readFile(path.resolve(__dirname, 'config/ipbans.txt'), function (err, data) {
 	for (var i = 0; i < data.length; i++) {
 		data[i] = data[i].split('#')[0].trim();
 		if (!data[i]) continue;
-		if (data[i].indexOf('/') >= 0) {
+		if (data[i].includes('/')) {
 			rangebans.push(data[i]);
 		} else if (!Users.bannedIps[data[i]]) {
 			Users.bannedIps[data[i]] = '#ipban';

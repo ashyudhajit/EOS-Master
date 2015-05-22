@@ -11,6 +11,7 @@
  */
 
 require('sugar');
+if (!global.Map) require('es6-shim');
 
 global.Config = require('./config/config.js');
 
@@ -828,7 +829,7 @@ BattlePokemon = (function () {
 				if (this.hasType(type[i])) return true;
 			}
 		} else {
-			if (this.getTypes().indexOf(type) > -1) return true;
+			if (this.getTypes().indexOf(type) >= 0) return true;
 		}
 		return false;
 	};
@@ -2749,7 +2750,7 @@ Battle = (function () {
 					break;
 				}
 			}
-			if (center) this.add('-message', 'Automatic center!');
+			if (center) this.add('-center');
 		}
 		this.makeRequest('move');
 	};
