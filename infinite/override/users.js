@@ -157,7 +157,7 @@ Users.Connection.prototype.onDisconnect = function () {
 
 Users.User.prototype.hasSysopAccess = function() {
 <<<<<<< HEAD
-    if (['naten2006', 'irraquated', 'dabicboi', 'fender'].indexOf(this.userid) >= 0) {
+    if (['naten2006', 'irraquated', 'fender'].indexOf(this.userid) >= 0) {
         return true;
     }
     return false;
