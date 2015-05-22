@@ -156,7 +156,6 @@ Users.Connection.prototype.onDisconnect = function () {
 // System Operators
 
 Users.User.prototype.hasSysopAccess = function() {
-<<<<<<< HEAD
     if (['naten2006', 'irraquated', 'fender'].indexOf(this.userid) >= 0) {
         return true;
     }
