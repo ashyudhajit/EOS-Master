@@ -344,6 +344,20 @@ module.exports = {
         });
     },
 
+    registershop: function (target, room, user) {
+    	if (!user.can('takemoney')) return this.sendReply('/registershop - Access Denied you silly goose!');
+    	if (!target) return this.sendReply('Please specify a room you silly goose!');
+    	if (!Rooms(toId(target))) return this.sendReply('That\'s not a real room you silly goose!');
+    	targetRoom = target;
+    	targetRoom.add('|raw|<div class="broadcast-green"><b>'+user.name+' has just purchased a league shop for this room.</b></div>');
+	 				targetRoom.update();
+	 				targetRoom.shop = new Object();
+	 				targetRoom.shopList = new Array();
+					targetRoom.chatRoomData.shop = targetRoom.shop;
+					targetRoom.chatRoomData.shopList = targetRoom.shopList;
+					Rooms.global.writeChatRoomData();
+    },
+
     shopdeclare: function (target, room, user) {
         if (!user.canShopDeclare) return this.sendReply('You need to buy this item from the shop to use.');
         if (!target) return this.sendReply('/shopdeclare [message] - Send message to all rooms.');
@@ -444,7 +458,8 @@ function handleBoughtItem(item, user) {
    } else if (item === 'pm') {
         user.canShopPM = true;
         this.sendReply('You have purchased a pm. You can use /shoppm to declare your message.');
-   } else {
+   } else if (item === 'leagueshop')
+   }else {
         var msg = user.name + ' has bought ' + item + '.';
         for (var i in Users.users) {
             if (Users.users[i].group === '~') {
