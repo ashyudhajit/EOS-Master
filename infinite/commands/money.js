@@ -348,7 +348,7 @@ module.exports = {
     	if (!user.can('takemoney')) return this.sendReply('/registershop - Access Denied you silly goose!');
     	if (!target) return this.sendReply('Please specify a room you silly goose!');
     	if (!Rooms(toId(target))) return this.sendReply('That\'s not a real room you silly goose!');
-    	targetRoom = target;
+    	var targetRoom = target;
     	targetRoom.add('|raw|<div class="broadcast-green"><b>'+user.name+' has just purchased a league shop for this room.</b></div>');
 	 				targetRoom.shop = new Object();
 	 				targetRoom.shopList = new Array();
