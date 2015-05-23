@@ -133,7 +133,7 @@ Profile.prototype.group = function() {
       }
     }
     if (this.isOnline) {
-      if (Users.vips[userid] return label('Group') + Config.groups[this.user.group].name + ' <font color=#6390F0><b>VIP User</b></font>';
+      if (Users.vips[userid]) return label('Group') + Config.groups[this.user.group].name + ' <font color=#6390F0><b>VIP User</b></font>';
       return label('Group') + Config.groups[this.user.group].name;
     }
     for (var name in Users.usergroups) {
