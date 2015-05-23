@@ -125,8 +125,17 @@ Profile.prototype.avatar = function() {
 };
 
 Profile.prototype.group = function() {
-    if (this.isOnline && this.user.group === ' ') return label('Group') + 'Regular User';
-    if (this.isOnline) return label('Group') + Config.groups[this.user.group].name;
+    if (this.isOnline && this.user.group === ' ') {
+       if (!Users.vips[userid]) {
+         return label('Group') + 'Regular User';
+      } else if (Users.vips[userid]) {
+         return label('Group') + 'Regular User <font color=#6390F0><b>VIP User</b></font>';
+      }
+    }
+    if (this.isOnline) {
+      if (Users.vips[userid] return label('Group') + Config.groups[this.user.group].name + ' <font color=#6390F0><b>VIP User</b></font>';
+      return label('Group') + Config.groups[this.user.group].name;
+    }
     for (var name in Users.usergroups) {
         if (toId(this.username) === name) {
             return label('Group') + Config.groups[Users.usergroups[name].charAt(0)].name;
