@@ -458,8 +458,7 @@ function handleBoughtItem(item, user) {
    } else if (item === 'pm') {
         user.canShopPM = true;
         this.sendReply('You have purchased a pm. You can use /shoppm to declare your message.');
-   } else if (item === 'leagueshop')
-   }else {
+   } else {
         var msg = user.name + ' has bought ' + item + '.';
         for (var i in Users.users) {
             if (Users.users[i].group === '~') {
