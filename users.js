@@ -590,13 +590,14 @@ User = (function () {
 		}
 		return this.group + this.name;
 	};
-	User.prototype.isStaff = false;
-	User.prototype.can = function (permission, target, room) {
-		if (this.hasSysopAccess()) return true;
-
-		var group = this.group;
-		var targetGroup = '';
-		if (target) targetGroup = target.group;
+ 	User.prototype.isStaff = false;
+ 	User.prototype.can = function (permission, target, room) {
+ 		if (this.hasSysopAccess()) return true;
+		if (permission === 'vip' && Users.vips[this.userid] && !target) return true;
+ 
+ 		var group = this.group;
+ 		var targetGroup = '';
+ 		if (target) targetGroup = target.group;
 		var groupData = Config.groups[group];
 
 		if (groupData && groupData['root']) {
