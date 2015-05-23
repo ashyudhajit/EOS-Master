@@ -7,7 +7,6 @@ var color = require('../color');
 var Economy = require('../economy');
 var Profile = require('../profile');
 var User = require('../mongo').userModel;
-var forever = require('forever');
 
 var emotes = require('../emoticons').emotes;
 
