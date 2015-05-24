@@ -68,7 +68,7 @@ exports.commands = {
                         this.sendReply("/leagueauth - This room isn't designed for per-room moderation");
                         return this.sendReply("Before setting league staff, you need to set it up with /roomfounder");
                 }
-                if (!target) return this.parse('/leagueauth [user] - Giver a user a rank in a league.');
+                if (!target) return this.parse('/leagueauth [user] - Giver a user a rank in a league. Use /leagueauthhelp for more help.');
                 if (!this.can('roommod', null, room)) return false;
 
                 target = this.splitTarget(target, true);
@@ -76,7 +76,7 @@ exports.commands = {
                 var userid = toId(this.targetUsername);
                 var name = targetUser ? targetUser.name : this.targetUsername;
 
-                if (!userid) return this.parse('/leagueauth [user] - Giver a user a rank in a league.');
+                if (!userid) return this.parse('/leagueauthhelp');
                 if (!targetUser && (!room.auth || !room.auth[userid])) {
                         return this.sendReply("User '" + name + "' is offline and unauthed, and so can't be promoted.");
                 }
