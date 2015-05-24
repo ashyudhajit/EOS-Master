@@ -15,8 +15,8 @@ var shop = [
     ['Great', 'Get a card that has a high chance of being a common or uncommon card. <b>Low chance for a higher rarity card.</b>', 10],
     ['Ultra', 'Get a card that has a <b>high chance of being a uncommon or rare card</b>. Medium chance for a higher rarity card.', 24],
     ['Master', 'Get a card that has a high chance of being a <b>rare or epic card</b>. Medium chance for a higher rarity card.', 50],
-    ['Smogon', 'Get a card that has a high chance of being a <b>epic or legendary card.</b>', 80],
-    ['Infinite', 'Get a card that has a <b>very high chance of being a legendary card.</b>', 150]
+    ['Smogon', 'Get a card that has a high chance of being a <b>epic or legendary card.</b>', 70],
+    ['Eos', 'Get a card that has a <b>very high chance of being a legendary card.</b>', 100]
 ];
 
 var shopDisplay = getShopDisplay(shop);
@@ -519,7 +519,7 @@ module.exports = {
             /psgohelp rank - Tells you about how much the top 10 users get each month.\
             /psgohelp points - Information about what are points and how they are calculated.\
             /psgohelp rarity - Tell information about a rarity of cards.<br><br>\
-            PSGO was originally created by CreaturePhil for infinite.psim.us\
+            PSGO was originally created by CreaturePhil for the Infinite server.\
             ');
     }
 };
