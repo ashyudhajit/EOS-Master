@@ -101,6 +101,8 @@ exports.commands = {
                         nextGroup = Groupsranking[7];
                 } else if (cmd==='roomchampion') {
                         nextGroup = Groupsranking[8];
+                } else if (cmd==='roomace') {
+                        nextGroup = Groupsranking[9];
                 } else if (cmd==='leaguedeauth') {
                         nextGroup = Groupsranking[0];
                 }
