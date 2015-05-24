@@ -3,7 +3,7 @@ var fs = require('fs');
 fs.readFile('./config/ipbans.txt', function (err, data) {
  			Users.bannedIps[data[i]] = '#ipban';
  		}
- 	}
+ 	};
  	Users.checkRangeBanned = Cidr.checker(rangebans);
  });
 
