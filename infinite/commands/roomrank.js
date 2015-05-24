@@ -8,6 +8,7 @@ module.exports = {
         if (!targetUser) return this.sendReply("User '" + this.targetUsername + "' is not online.");
         if (!this.can('makeroom')) return false;
         if (!room.auth) room.auth = room.chatRoomData.auth = {};
+        if (!room.leagueauth) room.leagueauth = room.chatRoomData.leagueauth = {};
         var name = targetUser.name;
         room.auth[targetUser.userid] = '#';
         room.founder = targetUser.userid;
