@@ -302,7 +302,7 @@ exports.grouplist = [
 		alts: '%u',
 		bypassblocks: 'u%@&~',
 		receiveauthmessages: true,
-		tournamentsmoderation: true,
+		tournaments: true
 		jeopardy: true,
 		joinbattle: true
 	},
@@ -312,6 +312,7 @@ exports.grouplist = [
 		name: "Voice",
 		inherit: ' ',
 		broadcast: true
+		tournaments: true
 	},
 	{
 		symbol: ' ',
