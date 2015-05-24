@@ -211,7 +211,7 @@ module.exports = {
     	if (!target) return this.sendReply('Please specify a room you silly goose!');
     	if (!Rooms(toId(target))) return this.sendReply('That\'s not a real room you silly goose!');
     	var targetRoom = Rooms(toId(target));
-    	targetRoom.add('|raw|<div class="broadcast-green"><b>'+user.name+' has just purchased a league shop for this room.</b></div>');
+    	targetRoom.add('|raw|<div class="broadcast-green"><b>'+user.name+' has just added a league shop to this room.</b></div>');
 	 				targetRoom.update();
 	 				targetRoom.shop = new Object();
 	 				targetRoom.shopList = new Array();
