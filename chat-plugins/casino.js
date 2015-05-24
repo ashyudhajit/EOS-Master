@@ -136,10 +136,7 @@
                                                  output += '</div>';
                                                  room.addRaw(output);
                                                  room.update();
-                                         });
-                                 });
                          }
-                });
         },
  
         enddice: function (target, room, user) {
