@@ -1,3 +1,4 @@
+ exports.commands = {
         dicestart: 'startdice',
         startdice: function(target, room, user) {
                  if (!this.canTalk()) return this.sendReply("You can not start dice games while unable to speak.");
@@ -157,4 +158,5 @@
                         '/joindice - Joins the game.<br />' +
                         '/enddice - Forcibly ends the game.'
                         );
-        },
+        }
+};
