@@ -1,3 +1,5 @@
+ var economy = require('economy.js')
+ 
  exports.commands = {
         dicestart: 'startdice',
         startdice: function(target, room, user) {
