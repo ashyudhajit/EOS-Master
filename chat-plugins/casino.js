@@ -1,4 +1,4 @@
- var economy = require('economy.js')
+ var economy = require('../economy')
  
  exports.commands = {
         dicestart: 'startdice',
