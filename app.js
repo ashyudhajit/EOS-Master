@@ -429,6 +429,8 @@ require('./infinite/mongo').connect();
 
 global.Poll = require('./infinite/poll');
 
+global.Spamroom = require('spamroom.js');
+
 global.Tells = require('./tells.js');
 
 require('./infinite/emoticons').enableEmoticons();
