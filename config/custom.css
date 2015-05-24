@@ -468,3 +468,11 @@
                 text-shadow: none;
                 color: #000;
         }
+
+       .emote-chat {
+         background: none;
+         border: 0;
+         padding: 0 5px 0 0;
+         font-family: Verdana;
+         font-size: 9pt;
+         }
