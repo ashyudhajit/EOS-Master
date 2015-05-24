@@ -1,6 +1,11 @@
 //ranking is mostly arbitrary
-var Groupsranking = [' ', 'T', 'L', 'S', 'P', 'F', 'ß', 'T','C'];
+var Groupsranking = [' ', 'T', 'L', 'S', 'P', 'F', 'ß', 'T','C','α'];
 var Groups = {
+        'α': {
+        	id: "ace",
+        	name: "Ace",
+        	rank:9
+        },
         'C': {
                 id: "champion",
                 name: "Champion",
@@ -56,6 +61,7 @@ exports.commands = {
         roomchampion: 'leaguepromote',
         roomrg: 'leaguepromote',
         roomprofessor: 'leaguepromote',
+        roomace: 'leaguepromote',
         leaguedemote: 'leagueauth',
         leaguepromote: function (target, room, user, connection, cmd) {
                 if (!room.auth) {
