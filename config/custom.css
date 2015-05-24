@@ -1,0 +1,470 @@
+
+       
+        /**************
+        * General CSS *
+        **************/
+       
+        body {
+                color: #FFF;
+                font-size: 12pt;
+                font-family: sans-serif;
+                background: #EEE url("http://i.imgur.com/9SmKCwH.jpg") no-repeat left fixed;
+        }
+       
+        .ps-room.ps-room-light {
+                background: rgba(0, 0, 0, 0);
+        }
+ 
+        .ps-room.ps-room-light.scrollable {            
+                color: #0B1361;
+                background-color: rgba(220, 255, 255, .8);
+                background-image: url("http://i.imgur.com/0S6bKfn.png?1");
+                background-position: bottom right;
+                background-repeat: no-repeat;
+                border-left: 1px solid #0B1361;
+        }
+       
+        .closebutton, .minimizebutton {
+                color: #0B1361;
+        }
+       
+        /*************
+        * Header CSS *
+        *************/
+ 
+        .header {
+                height: 50px;
+                background: rgba(220, 255, 255, .8) url("http://i.imgur.com/nYbGvH8.png?1") no-repeat;
+        }
+ 
+        .header .logo {
+                float: left;
+                margin: 2px 0 0 2px;
+                display: none;
+        }
+       
+        .userbar button.icon {
+                border: 1px solid #0B1361;
+                background: #B3E6FF;
+                color: #0B1361;
+                text-shadow: none;
+        }
+       
+        .userbar button.icon:hover {
+                background: #7BD4FF;
+        }
+       
+        .maintabbarbottom {
+                background-color: #FFFFD5;
+                border-color: #0B1361;
+        }
+ 
+        .tabbar a.button.subtle-notifying {
+                border-color: #0B1361;
+                background-color: #B3E6FF;
+                text-shadow: none;
+                color: #FF0200;
+        }
+ 
+        .tabbar a.button.subtle-notifying:hover {
+                border-color: #0B1361;
+                background-color: #82D6FF;
+        }
+ 
+        .tabbar a.button.notifying {
+                background: #FFB2B2;
+                border-color: #0B1361;
+                color: #0B1361;
+                text-shadow: none;
+        }
+ 
+        .tabbar a.button.notifying:hover {
+                background: #FD9191;
+                border-color: #0B1361;
+                color: #0B1361;
+        }
+ 
+        .tabbar a.button.cur, .tabbar a.button.cur:hover {
+                background-color: #FFFFD5;
+                border-color: #0B1361;
+                color: #0B1361;
+        }
+ 
+        .tabbar a.button {
+                border-color: #0B1361;
+                background: #B3E6FF;
+                color: #0B1361;
+                text-shadow: none;
+        }
+ 
+        .tabbar a.button:hover {
+                background: #7BD4FF;
+                border-color: #0B1361;
+                color: #0B1361;
+        }
+ 
+        /***********
+        * Chat CSS *
+        ***********/
+       
+        .chat-log {
+                font-size: 11pt;
+                background: url("http://i.imgur.com/6fo4WLb.jpg");
+                color: black;
+          font-family: sans-serif;
+        }
+ 
+        .chat-log-add {
+                font-family: sans-serif;
+                background: url("http://i.imgur.com/lkB2uSQ.jpg");
+        }
+       
+        .userlist {
+                background-color: rgba(244, 244, 244, 0.75);
+        }
+ 
+        .userlist li {
+                background-color: rgba(244, 244, 244, 0.8);
+        }
+ 
+        .userlist li button:hover {
+                background-color: rgba(244, 244, 244, 0.95);
+        }
+       
+        .highlighted {
+                background: #FFB2B2;
+        }
+       
+        .chat small {
+                color: #555;
+        }
+       
+        /*****************
+        * Tournament CSS *
+        *****************/
+ 
+        .tournament-title {
+                background: url("http://i.imgur.com/2yYNFHP.jpg?1");
+        }
+ 
+        .tournament-bracket {
+                font-size: 9pt;
+                background: url("http://i.imgur.com/2yYNFHP.jpg?1");
+        }
+ 
+        .tournament-popout-bracket {
+                font-size: 9pt;
+                background: url("http://i.imgur.com/2yYNFHP.jpg?1");
+        }
+ 
+        .tournament-bracket-table-cell-result-win {
+                background-color: rgba(0, 255, 0, 0.6)
+        }
+ 
+        .tournament-bracket-table-cell-result-draw {
+                background-color: rgba(255, 255, 0, 0.6)
+        }
+ 
+        .tournament-bracket-table-cell-result-loss {
+                background-color: rgba(255, 0, 0, 0.6)
+        }
+ 
+        .tournament-bracket-tree-link {
+                fill: none;
+                stroke: #aaa;
+        }
+ 
+        .tournament-bracket-tree-link-active {
+                stroke: #aa0;
+                stroke-width: 3px;
+        }
+ 
+        .tournament-bracket-tree-node > rect {
+                fill: rgba(225, 232, 242, 0.7);
+                stroke: rgba(178, 183, 191, 0.7);
+        }
+ 
+        .tournament-bracket-tree-node-win > rect {
+                fill: rgba(0, 255, 0, 0.2);
+                stroke: rgba(0, 255, 0, 0.5);
+        }
+ 
+        .tournament-bracket-tree-node-draw > rect {
+                fill: rgba(255, 255, 0, 0.2);
+                stroke: rgba(255, 255, 0, 0.5);
+        }
+ 
+        .tournament-bracket-tree-node-loss > rect {
+                fill: rgba(255, 0, 0, 0.2);
+                stroke: rgba(255, 0, 0, 0.5);
+        }
+        .tournament-bracket-tree-node > text {
+                font-size: 0.8em;
+        }
+ 
+        .tournament-bracket-tree-node > text > a {
+                fill: #248;
+        }
+ 
+        .tournament-bracket-tree-node > text > a:hover {
+                fill: #68c;
+        }
+ 
+        .tournament-bracket-tree-node-match-team {
+                font-weight: bold;
+        }
+ 
+        .tournament-bracket-tree-node-match-team-draw, .tournament-bracket-tree-node-match-team-loss {
+                fill: #aaa;
+        }
+       
+        /*********************
+        * Mainmenuwraper CSS *
+        *********************/
+ 
+        .menugroup {
+                color: #162D86;
+                background-color: rgba(218,255,253,.45);
+                text-shadow: 1px 1px 1px #C6F5F2;
+        }
+ 
+        .menugroup .button {
+                background: url("http://i.imgur.com/KHjlXIZ.png");
+                font-size: 12pt;
+                font-family: sans-serif;
+                color: #FFFFFF;
+                border: solid 1px #00013C;
+        }
+ 
+        .menugroup .button:hover {
+                background: #1F4367;
+        }
+ 
+        .menugroup .button:focus, .select:focus {
+                background: url("http://i.imgur.com/BNU8H8Z.png?1");
+        }
+ 
+        .select {
+                background: #1F4367;
+                color: #FFF;
+                text-shadow: 0 -1px 0 #14314D;
+                border: solid 1px #00013C;
+        }
+ 
+        .select:hover {
+                background: #14314D;
+                border: solid 1px #00013C;
+        }  
+ 
+        .select::after {
+                color: #EEE;
+        }
+       
+        .select:disabled, .select:disabled:hover, .select:disabled:active {
+                background: rgba(32, 68, 104, 0.6);
+                border: solid 1px #00013C;  
+        }
+ 
+        .select.preselected, .select.preselected:disabled {
+                color: #EEE;
+                text-shadow: none;
+        }
+       
+        .mainmenufooter a, .mainmenufooter {
+                color: #FFF;
+                text-shadow: 0px 0px 2px #000;
+        }
+       
+        /***************
+        * Roomlist CSS *
+        ***************/
+       
+        .roomlist h2 {
+                text-shadow: 0px -1px 1px #DDD;
+        }
+       
+        .roomlist a.ilink {
+                border: 1px solid #0B1361;
+                color: #0B1361;
+                background: #FBFBFB;
+        }
+       
+        .roomlist a.ilink:hover {
+                border: 1px solid #0B1361;
+                color: #05092B;
+                background: #F3F3F3;
+        }
+ 
+        .roomlist a.ilink small {
+                color: #0B1361;
+        }
+       
+        /************
+        * Popup CSS *
+        ************/
+       
+        .ps-popup {
+                background-color: #F3F3F3;
+                border: 1px solid #202020;
+                margin-top: 1px;
+        }
+       
+        .ps-popup button {
+                background: url("http://i.imgur.com/jt4bXeo.png?1");
+                border: 1px solid #0B1361;
+                color: #FFF;
+                text-shadow: 0px -1px 0px #0F1923;
+        }
+       
+        .ps-popup button:hover {
+                background: #1F4367;
+        }
+       
+        .popupmenu h3 {
+                color: #0B1361;
+        }
+       
+        .popupmenu button {
+                color: #202020;
+                background: none;
+                border: none;
+                text-shadow: none;
+        }
+       
+        .popupmenu button:hover {
+                background: #DDD;
+        }
+       
+        .popupmenu button:hover, .popupmenu button.sel, .popupmenu button.sel:hover {
+                border: 1px solid #202020;
+        }
+       
+        .ps-popup a, .ps-popup a.ilink:hover {
+                color: #0B1361;
+        }
+ 
+        /******************
+        * Teambuilder css *
+        ******************/
+ 
+        .teamchartbox {
+                background: url("http://i.imgur.com/ILidCvo.jpg");
+                text-shadow: none;
+                border-top: 1px solid #0B1361;
+        }
+       
+        .setchart {
+                border: 1px solid #0B1361;
+                background: url("http://i.imgur.com/qEW2a8L.png?2");
+        }
+       
+        .setchart-nickname {
+                border: 1px solid #0B1361;
+                background: url("http://i.imgur.com/0jJJ5wL.png?1");
+        }
+       
+        .setchart label, .setchart-nickname label {
+                color: #FFF;
+                text-shadow: 0px -1px 0px #0F1923;
+        }
+       
+        .setchart input, .setchart-nickname input, .statform input.inputform, .setdetails, .setstats {
+                border: 1px solid #0B1361;
+                background: #F9F9F9;
+        }
+       
+        .setchart input:hover, .setchart-nickname input:hover, .statform input.inputform:hover, .setdetails:hover, .setstats:hover {
+                border: 1px solid #0B1361;
+                background: #FFF;
+        }
+       
+        .setchart .setdetails label, .setchart .setstats label {
+                color: #000;
+                text-shadow: none;
+        }
+       
+        .teambuilder-results h3, .teambuilder-results .utilichart h3 {
+                background: url("http://i.imgur.com/wlJoJrT.png?1");
+                border-color: #0B1361;
+                color: #FFF;
+                text-shadow: 0px -1px 0px #0F1923;
+        }
+       
+        .setmenu button:hover {
+                border-color: #0B1361;
+        }
+       
+        .teambar button {
+                border-color: #0B1361;
+        }
+       
+        .teambar button:hover {
+                border-color: #0B1361;
+        }
+       
+        .teambar button:disabled, .teambar button:disabled:hover, .teambar button:disabled:active {
+    color: #000;
+    background: rgba(240, 240, 240, 0.7);
+    border-color: #0B1361;
+    opacity: 1;
+        }
+       
+        .utilichart {
+                text-shadow: none;
+        }
+       
+        .utilichart .movenamecol, .utilichart .pokemonnamecol, .utilichart .namecol {
+                font-style: italic;
+                color: #000;
+        }
+       
+        .utilichart .statcol em, .utilichart .bstcol em, .utilichart .numcol, .utilichart .labelcol em, .utilichart .widelabelcol em, .utilichart .pplabelcol em {
+                color: #777;
+        }
+       
+        .utilichart .itemdesccol, .utilichart .abilitydesccol, .utilichart .movedesccol {
+                color: #555;
+        }
+       
+        .utilichart .abilitycol, .utilichart .statcol, .utilichart .col {
+                color: #222;
+        }
+               
+        .utilichart .typecol img {
+    opacity: 0.75;
+        }
+       
+        .utilichart b {
+    color: #0B1361;
+        }
+       
+        .teambuilder-results .firstresult a, .teambuilder-results .firstresult a:hover, .teambuilder-results .result a:hover {
+                border-color: #0B1361;
+        }
+       
+        .teambuilder-clipboard-container {
+                border-color: #0B1361;
+        }
+       
+        .teambuilder-clipboard-data, .teambuilder-clipboard-data:hover {
+                background: url("http://i.imgur.com/jt4bXeo.png?1");
+                border-color: #0B1361;
+                color: #FFF;
+                text-shadow: 0px -1px 0px #0F1923;
+        }
+       
+        .teambuilder-clipboard-button-right, .teambuilder-clipboard-button-left, .majorbutton {
+                background: url("http://i.imgur.com/jt4bXeo.png?1");
+                border: 1px solid #0B1361;
+                color: #FFF;
+                text-shadow: 0px -1px 0px #0F1923;
+        }
+       
+        .teambuilder-clipboard-button-right:hover, .teambuilder-clipboard-button-left:hover, .majorbutton:hover {
+                background: #1F4367;
+        }
+       
+        .statform, .detailsform {
+                text-shadow: none;
+                color: #000;
+        }
