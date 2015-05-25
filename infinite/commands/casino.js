@@ -1,7 +1,7 @@
 var Economy = require('../economy');
  
  module.exports = {
-        dicestart: 'startdice',
+ /*       dicestart: 'startdice',
         startdice: function(target, room, user) {
                  if (!this.canTalk()) return this.sendReply("You can not start dice games while unable to speak.");
                  if (!target) return this.sendReply('Usage: /startdice <bet>');
@@ -155,3 +155,4 @@ var Economy = require('../economy');
                         );
         }
 };
+*/
