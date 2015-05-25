@@ -674,6 +674,7 @@ exports.Formats = [
 	{
 		name: "Monotype Random Battle",
 		section: "Monotype",
+		column: 2,
 
 		team: 'randomMonotype',
 		searchShow: false,
