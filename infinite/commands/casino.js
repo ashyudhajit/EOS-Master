@@ -32,7 +32,6 @@ var Economy = require('../economy');
                                  self.sendReply('You don\'t have enough bucks to join this game.');
                                  return room.dice.status = 1;
                          }
-                 });
                          if (!room.dice.player1) {
                                  room.dice.player1 = user.userid;
                                  room.dice.status = 1;
@@ -134,6 +133,7 @@ var Economy = require('../economy');
                                                  room.addRaw(output);
                                                  room.update();
                          }
+                 });
         },
  
         enddice: function (target, room, user) {
