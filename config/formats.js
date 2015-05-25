@@ -100,7 +100,7 @@ exports.Formats = [
 		ruleset: ['Pokemon', 'Standard', 'Team Preview', 'Little Cup'],
 		banlist: ['LC Uber', 'Gligar', 'Misdreavus', 'Scyther', 'Sneasel', 'Tangela', 'Dragon Rage', 'Sonic Boom', 'Swagger']
 	},
-	{
+/*	{
 		name: "Random LC",
 		section: "ORAS Singles",
 
@@ -108,7 +108,7 @@ exports.Formats = [
 		team: 'randomlc',
 		ruleset: ['PotD', 'Pokemon', 'Sleep Clause Mod', 'HP Percentage Mod'],
 		banlist: ['Dragon Rage', 'Sonic Boom', 'Swagger', 'LC Uber', 'Gligar', 'Misdreavus']
-	},
+	},*/
 	{
 		name: "Anything Goes",
 		section: "ORAS Singles",
