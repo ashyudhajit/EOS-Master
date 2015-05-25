@@ -223,14 +223,9 @@ module.exports = {
 
     shopdeclare: function (target, room, user) {
         if (!user.canShopDeclare) return this.sendReply('You need to buy this item from the shop to use.');
-        if (!target) return this.sendReply('/shopdeclare [message] - Send message to all rooms.');
-
-        for (var id in Rooms.rooms) {
-            if (id !== 'global') {
-                Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>' + target + '</b></div>');
-            }
-        }
-        this.logModCommand(user.name + " globally declared " + target);
+        if (!target) return this.sendReply('/shopdeclare [message] - Send message to lobby.');
+	Rooms.rooms['lobby'].add('|raw|<div class="broadcast-red"><b>' + target + '</b></div>');
+        this.logModCommand(user.name + " shop declared " + target);
         user.canShopDeclare = false;
     },
 
