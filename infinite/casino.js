@@ -1,4 +1,4 @@
-var economy = require('./economy');
+var Economy = require('./economy');
  
  exports.commands = {
         dicestart: 'startdice',
@@ -11,8 +11,6 @@ var economy = require('./economy');
                  if (target < 1) return this.sendReply('/startdice - You can not bet less than one buck.');
                  if (target > 500) return this.sendReply('/startdice - You can\'t bet more than 500 bucks.');
                  var self = this;
- 
-                 readMoney(user.userid, function(userMoney) {
                          if (!room.dice) room.dice = {};
                          if (!room.dice.status) room.dice.status = 0;
                          if (room.dice.status > 0) return self.sendReply('/startdice - There is already a game started in here!');
@@ -22,7 +20,6 @@ var economy = require('./economy');
                          room.addRaw('<div class="infobox"><h2><center><font color=#24678d>' + Tools.escapeHTML(user.name) + ' has started a dice game for </font><font color=red>' + target + 
                                  ' </font><font color=#24678d>' + ((target === 1) ? " buck." : " bucks.") + '.</font><br /> <button name="send" value="/joindice">Click to join.</button></center></h2></div>');
                          room.update();
-                 });
         },
  
         joindice: function(target, room, user) {
