@@ -1,6 +1,6 @@
 var Economy = require('../economy');
  
- /*module.exports = {
+ module.exports = {
         dicestart: 'startdice',
         startdice: function(target, room, user) {
                  if (!this.canTalk()) return this.sendReply("You can not start dice games while unable to speak.");
@@ -27,11 +27,12 @@ var Economy = require('../economy');
                  if (room.dice.status !== 1) return this.sendReply('There is no dice game in it\'s signup phase in this room.');
                  var self = this;
                  room.dice.status = 2;
-                 var userMoney = Economy.get(user.userid);
+                 Economy.get(user.name).then(function(userMoney){
                          if (userMoney < room.dice.bet) {
                                  self.sendReply('You don\'t have enough bucks to join this game.');
                                  return room.dice.status = 1;
                          }
+                 });
                          if (!room.dice.player1) {
                                  room.dice.player1 = user.userid;
                                  room.dice.status = 1;
@@ -155,4 +156,3 @@ var Economy = require('../economy');
                         );
         }
 };
-*/
