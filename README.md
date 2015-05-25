@@ -66,7 +66,7 @@ To make the username look normal when using emoticons, put this in your css:
 Contributing
 ------------
 
-To test infinite's code, use `grunt && mocha`:
+To test eos's code, use `grunt && mocha`:
 
 ```bash
 $ grunt && mocha
