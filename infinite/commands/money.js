@@ -13,7 +13,7 @@ var shop = [
     ['Staff Help', 'Staff member will help set up roomintros and anything else needed in a room. Response may not be immediate.', 50]
     ['League Shop', 'Purchases a League Shop for use in your league room, room must be a league room.', 75],
     ['Room', 'Buys a chatroom for you to own. (within reason, can be refused)', 100],
-    ['Custom Artwork', 'Buys Elite Four Mitsaki\'s time.  The price may vary based on what\'s being done, but avatars, symbols, banners, etc.', 150],
+    ['Custom Artwork', 'Buys Elite Four Mitsaki\'s time.  The price may vary based on what\'s being done, but avatars, symbols, banners, etc.', 150]
 ];
 
 var shopDisplay = getShopDisplay(shop);
