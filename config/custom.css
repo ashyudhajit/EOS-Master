@@ -113,6 +113,10 @@
                 color: black;
           font-family: sans-serif;
         }
+        .chat-log .notice, .chat-log .chat, .pm-log .chat {
+                padding: 4px 0 2px 0;
+                font-size: 10pt;
+       }
  
         .chat-log-add {
                 font-family: sans-serif;
