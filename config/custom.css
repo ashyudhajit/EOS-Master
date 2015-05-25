@@ -6,8 +6,6 @@
        
         body {
                 color: #FFF;
-                font-size: 12pt;
-                font-family: sans-serif;
                 background: #EEE url("http://i.imgur.com/9SmKCwH.jpg") no-repeat left fixed;
         }
        
@@ -108,18 +106,14 @@
         ***********/
        
         .chat-log {
-                font-size: 11pt;
                 background: url("http://i.imgur.com/6fo4WLb.jpg");
                 color: black;
-          font-family: sans-serif;
         }
         .chat-log .notice, .chat-log .chat, .pm-log .chat {
                 padding: 4px 0 2px 0;
-                font-size: 10pt;
        }
  
         .chat-log-add {
-                font-family: sans-serif;
                 background: url("http://i.imgur.com/lkB2uSQ.jpg");
         }
        
@@ -234,8 +228,6 @@
  
         .menugroup .button {
                 background: url("http://i.imgur.com/KHjlXIZ.png");
-                font-size: 12pt;
-                font-family: sans-serif;
                 color: #FFFFFF;
                 border: solid 1px #00013C;
         }
