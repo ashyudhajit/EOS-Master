@@ -1,39 +1,40 @@
 //ranking is mostly arbitrary
-var Groupsranking = [' ', 'T', 'L', 'S', 'P', 'F', 'ß', 'T','C','α'];
+var Groupsranking = [' ', 'T', 'L', 'F', 'ß', 'α', 'P', 'Θ', 'Σ', 'C', ];
 var Groups = {
-        'α': {
-        	id: "ace",
-        	name: "Ace",
-        	rank:9
-        },
+
         'C': {
                 id: "champion",
                 name: "Champion",
+                rank: 9
+        },
+        'Σ': {
+                id: "elite",
+                name: "Elite",
                 rank: 8
         },
-        'T': {
+        'Θ': {
                 id: "rg",
                 name: "Royal Guard",
                 rank: 7
         },
-        'ß': {
-                id: "brain",
-                name: "Frontier Brain",
-                rank: 6
-        },
-        'F': {
-                id: "frontier",
-                name: "Frontier",
-                rank: 5
-        },
         'P': {
                 id: "professor",
                 name: "Professor",
-                rank: 4
+                rank: 6
         },
-        'S': {
-                id: "elite",
-                name: "Elite",
+        'α': {
+        	id: "ace",
+        	name: "Ace",
+        	rank: 5
+        },
+        'ß': {
+                id: "brain",
+                name: "Frontier Brain",
+                rank: 4
+        },        
+        'F': {
+                id: "frontier",
+                name: "Frontier",
                 rank: 3
         },
         'L': {
@@ -55,13 +56,13 @@ exports.commands = {
         leaguedeauth: 'leaguepromote',
         roomtrainer: 'leaguepromote',
         roomgleader: 'leaguepromote',
-        roomelite: 'leaguepromote',
-        roombrain: 'leaguepromote',
         roomfrontier: 'leaguepromote',
-        roomchampion: 'leaguepromote',
-        roomrg: 'leaguepromote',
-        roomprofessor: 'leaguepromote',
+        roombrain: 'leaguepromote',
         roomace: 'leaguepromote',
+        roomprofessor: 'leaguepromote',
+        roomrg: 'leaguepromote',
+        roomelite: 'leaguepromote',
+        roomchampion: 'leaguepromote',
         leaguedemote: 'leagueauth',
         leaguepromote: function (target, room, user, connection, cmd) {
                 if (!room.auth) {
@@ -89,19 +90,19 @@ exports.commands = {
                         nextGroup = Groupsranking[1];
                 } else if (cmd==='roomgleader') {
                         nextGroup = Groupsranking[2];
-                } else if (cmd==='roomelite') {
-                        nextGroup = Groupsranking[3];                
-                } else if (cmd==='roomprofessor') {
-                        nextGroup = Groupsranking[4];
                 } else if (cmd==='roomfrontier') {
-                        nextGroup = Groupsranking[5];
+                        nextGroup = Groupsranking[3];                
                 } else if (cmd==='roombrain') {
+                        nextGroup = Groupsranking[4];
+                } else if (cmd==='roomace') {
+                        nextGroup = Groupsranking[5];
+                } else if (cmd==='roomprofessor') {
                         nextGroup = Groupsranking[6];
                 } else if (cmd==='roomrg') {
                         nextGroup = Groupsranking[7];
-                } else if (cmd==='roomchampion') {
+                } else if (cmd==='roomelite') {
                         nextGroup = Groupsranking[8];
-                } else if (cmd==='roomace') {
+                } else if (cmd==='roomchampion') {
                         nextGroup = Groupsranking[9];
                 } else if (cmd==='leaguedeauth') {
                         nextGroup = Groupsranking[0];
