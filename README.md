@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/FakeSloth/Infinite.svg)](https://david-dm.org/FakeSloth/Infinite)
 [![devDependency Status](https://david-dm.org/FakeSloth/Infinite/dev-status.svg)](https://david-dm.org/FakeSloth/Infinite#info=devDependencies)
 
-Eos's Pokemon Showdown Server. With features designed by [creaturephil](https://github.com/creaturephil) for [Infinite](http://infinite.psim.us/)
+EOS's Pokemon Showdown Server. With features designed by [creaturephil](https://github.com/creaturephil) for [Infinite](http://infinite.psim.us/)
 
 Prerequisites
 -------------
