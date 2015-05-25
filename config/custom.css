@@ -6,6 +6,8 @@
        
         body {
                 color: #FFF;
+                font-size: 12pt;
+                font-family: sans-serif;
                 background: #EEE url("http://i.imgur.com/9SmKCwH.jpg") no-repeat left fixed;
         }
        
@@ -24,6 +26,10 @@
        
         .closebutton, .minimizebutton {
                 color: #0B1361;
+        }
+       
+        .ps-overlay {
+                background: rgba(0, 0, 0, 0.3);
         }
        
         /*************
@@ -106,14 +112,14 @@
         ***********/
        
         .chat-log {
+                font-size: 11pt;
                 background: url("http://i.imgur.com/6fo4WLb.jpg");
                 color: black;
+          font-family: sans-serif;
         }
-        .chat-log .notice, .chat-log .chat, .pm-log .chat {
-                padding: 4px 0 2px 0;
-       }
  
         .chat-log-add {
+                font-family: sans-serif;
                 background: url("http://i.imgur.com/lkB2uSQ.jpg");
         }
        
@@ -135,6 +141,47 @@
        
         .chat small {
                 color: #555;
+        }
+       
+        .emote-chat {
+    background: none;
+    border: 0;
+    padding: 0 5px 0 0;
+    font-family: Verdana;
+    font-size: 9pt;
+  }
+       
+        .broadcast-blue {
+                background-color: #B3E6FF;
+                border: 1px solid #0B1361;
+                color: #0B1361;
+                font-family: sans-serif;
+                padding: 5px;
+                text-align: center;
+                margin: 5px;
+                text-shadow: 0px -1px 0px #D7F2FF;
+        }
+ 
+        .broadcast-red {
+                background-color: #FFB3B3;
+                border: 1px solid #610B0B;
+                color: #610B0B;
+                font-family: sans-serif;
+                padding: 5px;
+                text-align: center;
+                margin: 5px;
+                text-shadow: 0px -1px 0px #FFD7D7;
+        }
+ 
+        .broadcast-green {
+                background-color: #C3FFB3;
+                border: 1px solid #19610B;
+                color: #19610B;
+                font-family: sans-serif;
+                padding: 5px;
+                text-align: center;
+                margin: 5px;
+                text-shadow: 0px -1px 0px #D8FFD7;
         }
        
         /*****************
@@ -228,42 +275,14 @@
  
         .menugroup .button {
                 background: url("http://i.imgur.com/KHjlXIZ.png");
+                font-size: 12pt;
+                font-family: sans-serif;
                 color: #FFFFFF;
                 border: solid 1px #00013C;
         }
  
         .menugroup .button:hover {
                 background: #1F4367;
-        }
- 
-        .menugroup .button:focus, .select:focus {
-                background: url("http://i.imgur.com/BNU8H8Z.png?1");
-        }
- 
-        .select {
-                background: #1F4367;
-                color: #FFF;
-                text-shadow: 0 -1px 0 #14314D;
-                border: solid 1px #00013C;
-        }
- 
-        .select:hover {
-                background: #14314D;
-                border: solid 1px #00013C;
-        }  
- 
-        .select::after {
-                color: #EEE;
-        }
-       
-        .select:disabled, .select:disabled:hover, .select:disabled:active {
-                background: rgba(32, 68, 104, 0.6);
-                border: solid 1px #00013C;  
-        }
- 
-        .select.preselected, .select.preselected:disabled {
-                color: #EEE;
-                text-shadow: none;
         }
        
         .mainmenufooter a, .mainmenufooter {
@@ -303,17 +322,6 @@
                 background-color: #F3F3F3;
                 border: 1px solid #202020;
                 margin-top: 1px;
-        }
-       
-        .ps-popup button {
-                background: url("http://i.imgur.com/jt4bXeo.png?1");
-                border: 1px solid #0B1361;
-                color: #FFF;
-                text-shadow: 0px -1px 0px #0F1923;
-        }
-       
-        .ps-popup button:hover {
-                background: #1F4367;
         }
        
         .popupmenu h3 {
@@ -464,7 +472,47 @@
                 text-shadow: none;
                 color: #000;
         }
-
+       
+        /*************
+        * Battle CSS *
+        *************/
+       
+        .ps-room.ps-room-opaque {
+                background-color: rgba(220, 255, 255, .8);
+        }
+       
+        .battle-log {
+                font-family: sans-serif;
+                border-color: #0B1361;
+        }
+       
+        .battle-log-add {
+                border: 1px solid #0B1361;
+                color: #0B1361;
+                background: #FBFBFB;
+                font-family: sans-serif;
+        }
+       
+        .battle-log h2 {
+                font-family: sans-serif;
+                border-color: #0B1361;
+                color: #0B1361;
+                background: #FBFBFB;
+        }
+       
+        .battle-log-add .textbox {
+                border-color: #0B1361;
+        }
+       
+        .movemenu button, .switchmenu button, .trainer strong, .statbar strong {
+                font-family: sans-serif;
+        }
+       
+        .moveselect button, .switchselect button {
+                font-family: sans-serif;
+                color: #0B1361;
+                text-shadow: 0px -1px 0px #C1FDFD;
+        }
        .emote-chat {
          background: none;
          border: 0;
