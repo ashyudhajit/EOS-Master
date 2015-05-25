@@ -1,7 +1,7 @@
 var Economy = require('../economy');
  
  module.exports = {
- /*       dicestart: 'startdice',
+        dicestart: 'startdice',
         startdice: function(target, room, user) {
                  if (!this.canTalk()) return this.sendReply("You can not start dice games while unable to speak.");
                  if (!target) return this.sendReply('Usage: /startdice <bet>');
@@ -19,7 +19,7 @@ var Economy = require('../economy');
                          room.addRaw('<div class="infobox"><h2><center><font color=#24678d>' + Tools.escapeHTML(user.name) + ' has started a dice game for </font><font color=red>' + target + 
                                  ' </font><font color=#24678d>' + ((target === 1) ? " buck." : " bucks.") + '.</font><br /> <button name="send" value="/joindice">Click to join.</button></center></h2></div>');
                          room.update();
-        },*/
+        },
  
         joindice: function(target, room, user) {
                 if (!this.canTalk()) return this.sendReply("You may not join dice games while unable to speak.");
