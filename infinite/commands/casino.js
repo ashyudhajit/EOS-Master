@@ -111,7 +111,7 @@ var Economy = require('../economy');
                                                          output += '<font color=#24678d><b>' + Tools.escapeHTML(firstName) + '</b></font> has won <font color=#24678d><b>' + betMoney + '</b></font> ' + ((betMoney === 1) ? " buck." : " bucks.") + '.<br />'
                                                          output += 'Better luck next time ' + Tools.escapeHTML(secondName) + '!';
                                                          Economy.give(toId(firstName),betMoney);
-                                                         Economy.take(toId(secondName),-betMoney);
+                                                         Economy.take(toId(secondName),betMoney);
                                                          room.dice.status = 0;
                                                          delete room.dice.player1;
                                                          delete room.dice.player2;
@@ -121,8 +121,8 @@ var Economy = require('../economy');
                                                  if (secondNumber > firstNumber) {
                                                          output += '<font color=#24678d><b>' + Tools.escapeHTML(secondName) + '</b></font> has won <font color=#24678d><b>' + betMoney + '</b></font> ' + ((betMoney === 1) ? " buck." : " bucks.") + '.<br />';
                                                          output += 'Better luck next time ' + Tools.escapeHTML(firstName) + '!';
-                                                         Economy.give(toId(firstName),-betMoney);
-                                                         Economy.take(toId(secondName),betMoney);
+                                                         Economy.take(toId(firstName),betMoney);
+                                                         Economy.give(toId(secondName),betMoney);
                                                          room.dice.status = 0;
                                                          delete room.dice.player1;
                                                          delete room.dice.player2;
