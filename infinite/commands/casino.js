@@ -4,6 +4,7 @@ var Economy = require('../economy');
         dicestart: 'startdice',
         startdice: function(target, room, user) {
                  if (!this.canTalk()) return this.sendReply("You can not start dice games while unable to speak.");
+                 if (room.id !== 'casino') return this.sendReply('This command can only be used in the Casino room.');
                  if (!target) return this.sendReply('Usage: /startdice <bet>');
                  if (isNaN(Number(target))) return this.sendReply('/startdice - <bet> must be a number greater than 0');
                  target = Math.round(Number(target));
