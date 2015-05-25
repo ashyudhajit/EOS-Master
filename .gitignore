@@ -4,7 +4,6 @@
 /gulp-cache
 npm-debug.log
 infinite/mongo.js
-infinite/commands/leagueshops.js
 chat-plugins/leagueauth.js
 
 
