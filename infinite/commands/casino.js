@@ -27,7 +27,7 @@ var Economy = require('../economy');
                  if (room.dice.status !== 1) return this.sendReply('There is no dice game in it\'s signup phase in this room.');
                  var self = this;
                  room.dice.status = 2;
-                 userMoney = Economy.get(user.userid);
+                 var userMoney = Economy.get(user.userid);
                          if (userMoney < room.dice.bet) {
                                  self.sendReply('You don\'t have enough bucks to join this game.');
                                  return room.dice.status = 1;
