@@ -673,7 +673,7 @@ exports.Formats = [
 	},
 	{
 		name: "Monotype Random Battle",
-		section: "Other Metagames",
+		section: "Monotype",
 
 		team: 'randomMonotype',
 		searchShow: false,
@@ -702,14 +702,14 @@ exports.Formats = [
 			'Mawilite','Salamencite','Slowbronite','Soul Dew','Double Team','Minimize','Swagger'
 		]
 	},
-	{
+/*	{
 		name: "Random Monotype",
 		section: "Monotype",
 		column: 2,
 
 		team: 'randommonotype',
 		ruleset: ['Pokemon', 'Sleep Clause Mod', 'HP Percentage Mod']
-	},
+	},*/
 	{
 		name: "Tier Shift Monotype",
 		section: "Monotype",
