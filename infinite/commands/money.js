@@ -14,6 +14,11 @@ var shop = [
     ['Custom Artwork', 'Buys Elite Four Mitsaki\'s time.  The price may vary based on what\'s being done, but avatars, symbols, banners, etc.', 150]
 ];
 
+function logMoney (message) {
+	if (!message) return false;
+	fs.appendFile('logs/money.log','['+new Date().toUTCString()+'] '+message+'\n');
+}
+
 var shopDisplay = getShopDisplay(shop);
 
 module.exports = {
@@ -49,6 +54,7 @@ module.exports = {
         Economy.give(this.targetUsername, amount).then(function(total) {
             this.sendReply(this.targetUsername + ' was given ' + currency  + '. This user now has ' + total + Economy.currency(total) + '.');
             Users.get(this.targetUsername).connections[0].sendTo(room.id, user.name + ' has given you ' + currency + '. You now have ' + total + Economy.currency(total) + '.');
+            logMoney(this.targetUsername + ' was given ' + currency + ' by ' + user.name + '.');
         }.bind(this));
     },
 
@@ -73,6 +79,7 @@ module.exports = {
         Economy.take(this.targetUsername, amount).then(function(total) {
             this.sendReply(this.targetUsername + ' losted ' + currency + '. This user now has ' + total + Economy.currency(total) + '.');
             Users.get(this.targetUsername).send(user.name + ' has taken ' + currency + ' from you. You now have ' + total + Economy.currency(total) + '.');
+            logMoney(this.targetUsername + ' had ' + currency + ' taken away by ' + user.name + '.');
         }.bind(this));
     },
 
@@ -102,6 +109,7 @@ module.exports = {
             })
             .spread(function(targetTotal, userTotal) {
                 self.sendReply('You have successfully transferred ' + currency + '. You now have ' + userTotal + Economy.currency(userTotal) + '.');
+                logMoney(user.name + ' transferred ' + currency + ' to ' + this.targetUsername + '.');
                 if (Users.get(targetName)) {
                     Users.get(targetName).connections[0].sendTo(room.id, user.name + ' has transferred ' + currency + '. You now have ' + targetTotal + Economy.currency(targetTotal) + '.');
                 }
@@ -127,6 +135,7 @@ module.exports = {
                     Economy.currency(cost) + '. You now have ' + total + 
                     Economy.currency(total) + ' left.');
                 room.addRaw(user.name + ' has bought <b>' + target + '</b> from the shop.');
+                logMoney(user.name + ' has bought ' + target + ' from the shop.');
                 handleBoughtItem.call(self, target.toLowerCase(), user);
                 room.update();
             });
@@ -200,6 +209,7 @@ module.exports = {
             user.save(function(err) {
                 if (err) throw err;
                 self.sendReply(target + ' now has 0 bucks.');
+                logMoney(user.name + ' reset the money of ' + target + '.');
                 room.update();
             });
         });
@@ -239,7 +249,45 @@ module.exports = {
             Users.users[name].send(message);
         }
         user.canShopPM = false;
-    }
+    },
+    
+    moneylog: function(target,room,user) {
+    	var target = params.shift();
+				var lines = 0;
+				if (!target.match('[^0-9]')) {
+					lines = parseInt(target || 15, 10);
+					if (lines > 100) lines = 100;
+				}
+				var filename = 'logs/leagueshop_'+room.id+'.txt';
+				var command = 'tail -'+lines+' '+filename;
+				var grepLimit = 100;
+				if (!lines || lines < 0) { // searching for a word instead
+					if (target.match(/^["'].+["']$/)) target = target.substring(1,target.length-1);
+					command = "awk '{print NR,$0}' "+filename+" | sort -nr | cut -d' ' -f2- | grep -m"+grepLimit+" -i '"+target.replace(/\\/g,'\\\\\\\\').replace(/["'`]/g,'\'\\$&\'').replace(/[\{\}\[\]\(\)\$\^\.\?\+\-\*]/g,'[$&]')+"'";
+				}
+ 
+				require('child_process').exec(command, function(error, stdout, stderr) {
+					if (error && stderr) {
+						user.popup('/leagueshop viewlog erred - the shop log does not support Windows');
+						console.log('/leagueshop viewlog error: '+error);
+						return false;
+					}
+					if (lines) {
+						if (!stdout) {
+							user.popup('The log is empty.');
+						} else {
+							user.popup('Displaying the last '+lines+' lines of shop purchases:\n\n'+stdout);
+						}
+					} else {
+						if (!stdout) {
+							user.popup('No purchases containing "'+target+'" were found.');
+						} else {
+							user.popup('Displaying the last '+grepLimit+' logged purchases containing "'+target+'":\n\n'+stdout);
+						}
+					}
+					
+				});
+    		}
 };
 
 /**
