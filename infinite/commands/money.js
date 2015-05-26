@@ -258,7 +258,7 @@ module.exports = {
 					lines = parseInt(target || 15, 10);
 					if (lines > 100) lines = 100;
 				}
-				var filename = 'logs/leagueshop_'+room.id+'.txt';
+				var filename = 'logs/money.log';
 				var command = 'tail -'+lines+' '+filename;
 				var grepLimit = 100;
 				if (!lines || lines < 0) { // searching for a word instead
@@ -268,21 +268,21 @@ module.exports = {
  
 				require('child_process').exec(command, function(error, stdout, stderr) {
 					if (error && stderr) {
-						user.popup('/leagueshop viewlog erred - the shop log does not support Windows');
-						console.log('/leagueshop viewlog error: '+error);
+						user.popup('/moneylog viewlog erred - the shop log does not support Windows');
+						console.log('/moneylog viewlog error: '+error);
 						return false;
 					}
 					if (lines) {
 						if (!stdout) {
 							user.popup('The log is empty.');
 						} else {
-							user.popup('Displaying the last '+lines+' lines of shop purchases:\n\n'+stdout);
+							user.popup('Displaying the last '+lines+' lines of transactions:\n\n'+stdout);
 						}
 					} else {
 						if (!stdout) {
-							user.popup('No purchases containing "'+target+'" were found.');
+							user.popup('No transactions containing "'+target+'" were found.');
 						} else {
-							user.popup('Displaying the last '+grepLimit+' logged purchases containing "'+target+'":\n\n'+stdout);
+							user.popup('Displaying the last '+grepLimit+' logged transactions containing "'+target+'":\n\n'+stdout);
 						}
 					}
 					
