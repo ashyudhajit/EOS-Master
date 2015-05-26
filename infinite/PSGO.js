@@ -277,7 +277,7 @@ var packs = {
     * 2 iterations of epic card
     * 5 iterations of legendary cards
     */
-    Eos: function() {
+    eos: function() {
         var pile = base(rare, 1)
                     .concat(base(epic, 1))
                     .concat(base(legendary, 6));
@@ -289,7 +289,7 @@ var packs = {
 exports.packs = packs;
 
 function addCard(name, card) {
-    userModel.findOne({inname: toId(name)}, function(err, user) {
+    userModel.findOne({name: toId(name)}, function(err, user) {
         if (err) throw err;
         if (!user) {
             user = new userModel({
