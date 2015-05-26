@@ -16,7 +16,7 @@ var shop = [
 
 function logMoney (message) {
 	if (!message) return false;
-	fs.appendFile('logs/money.log','['+new Date().toUTCString()+'] '+message+'\n');
+	fs.appendFile('logs/money.txt','['+new Date().toUTCString()+'] '+message+'\n');
 }
 
 var shopDisplay = getShopDisplay(shop);
@@ -258,7 +258,7 @@ module.exports = {
 					lines = parseInt(target || 15, 10);
 					if (lines > 100) lines = 100;
 				}
-				var filename = 'logs/money.log';
+				var filename = 'logs/money.txt';
 				var command = 'tail -'+lines+' '+filename;
 				var grepLimit = 100;
 				if (!lines || lines < 0) { // searching for a word instead
