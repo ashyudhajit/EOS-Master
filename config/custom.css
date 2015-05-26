@@ -1,13 +1,9 @@
-
-       
-        /**************
+/**************
         * General CSS *
         **************/
        
         body {
                 color: #FFF;
-                font-size: 12pt;
-                font-family: sans-serif;
                 background: #EEE url("http://i.imgur.com/9SmKCwH.jpg") no-repeat left fixed;
         }
        
@@ -31,6 +27,7 @@
         .ps-overlay {
                 background: rgba(0, 0, 0, 0.3);
         }
+       
        
         /*************
         * Header CSS *
@@ -112,14 +109,11 @@
         ***********/
        
         .chat-log {
-                font-size: 11pt;
                 background: url("http://i.imgur.com/6fo4WLb.jpg");
                 color: black;
-          font-family: sans-serif;
         }
  
         .chat-log-add {
-                font-family: sans-serif;
                 background: url("http://i.imgur.com/lkB2uSQ.jpg");
         }
        
@@ -184,6 +178,15 @@
                 text-shadow: 0px -1px 0px #D8FFD7;
         }
        
+        .infobox {
+    border: 1px solid #0B1361;
+        }
+       
+        .message .result {
+    border: 1px solid #0B1361;
+                background: #F2F2F2;
+  }
+       
         /*****************
         * Tournament CSS *
         *****************/
@@ -195,6 +198,7 @@
         .tournament-bracket {
                 font-size: 9pt;
                 background: url("http://i.imgur.com/2yYNFHP.jpg?1");
+                border-top: 1px solid #AAA;
         }
  
         .tournament-popout-bracket {
@@ -263,6 +267,11 @@
                 fill: #aaa;
         }
        
+        .tournament-status, .tournament-toggle {
+                background: url("http://i.imgur.com/KHjlXIZ.png");
+                color: #FFFFFF;
+        }
+       
         /*********************
         * Mainmenuwraper CSS *
         *********************/
@@ -285,11 +294,78 @@
                 background: #1F4367;
         }
        
+        .select {
+                font-family: sans-serif;
+        }
+       
         .mainmenufooter a, .mainmenufooter {
                 color: #FFF;
                 text-shadow: 0px 0px 2px #000;
         }
        
+        .pm-window h3, .pm-window.focused h3, .pm-window.focused h3:hover {
+                border-color: #0B1361;
+                background: #B3E6FF;
+                color: #0B1361;
+        }
+       
+        .pm-window h3:hover {
+                border-color: #0B1361;
+                background: #7BD4FF;
+                color: #05092B;
+        }
+       
+        .pm-window.focused h3, .pm-window.focused h3:hover {
+                border-color: #0B1361;
+                background: #B3E6FF;
+                color: #05092B;
+        }
+       
+        .pm-window h3 small {
+                color: #FF0200;
+        }
+       
+        .pm-log, .pm-window.focused .pm-log {
+                border-color: #0B1361;
+        }
+       
+        .pm-log-add {
+                border-color: #0B1361;
+                background: #B3E6FF;
+        }
+       
+        .pm-window.focused .pm-log-add {
+                background-color: #26A;
+                border-color: #0B1361;
+        }
+       
+        .pm-log-add .textbox {
+                border-color: #0B1361;
+        }
+       
+        .challenge {
+                border-color: #0B1361;
+                border-top: 1px solid #B3E6FF;
+                background: #B3E6FF;
+                color: #0B1361;
+        }
+       
+        .pm-window h3.pm-notifying {
+    background: #FFB2B2;
+                border-color: #0B1361;
+                color: #0B1361;
+        }
+       
+        .pm-window h3.pm-notifying:hover {
+                background: #FD9191;
+                border-color: #0B1361;
+                color: #0B1361;
+        }
+       
+        .message-pm {
+    color: #0B1361;
+        }
+ 
         /***************
         * Roomlist CSS *
         ***************/
@@ -346,6 +422,22 @@
         .ps-popup a, .ps-popup a.ilink:hover {
                 color: #0B1361;
         }
+       
+        .ps-popup b {
+                color: #05092B;
+        }
+       
+        .userdetails .offline {
+    color: #FF0200;
+        }
+       
+        .credits h2 {
+                color: #FF0200;
+        }
+       
+        a.subtle, a.subtle:hover, .credits ul li p {
+                color: #0B1361;
+        }
  
         /******************
         * Teambuilder css *
@@ -400,6 +492,7 @@
        
         .teambar button {
                 border-color: #0B1361;
+                font-family: sans-serif;
         }
        
         .teambar button:hover {
@@ -482,7 +575,6 @@
         }
        
         .battle-log {
-                font-family: sans-serif;
                 border-color: #0B1361;
         }
        
@@ -490,11 +582,9 @@
                 border: 1px solid #0B1361;
                 color: #0B1361;
                 background: #FBFBFB;
-                font-family: sans-serif;
         }
        
         .battle-log h2 {
-                font-family: sans-serif;
                 border-color: #0B1361;
                 color: #0B1361;
                 background: #FBFBFB;
@@ -504,19 +594,23 @@
                 border-color: #0B1361;
         }
        
-        .movemenu button, .switchmenu button, .trainer strong, .statbar strong {
-                font-family: sans-serif;
-        }
-       
         .moveselect button, .switchselect button {
-                font-family: sans-serif;
                 color: #0B1361;
                 text-shadow: 0px -1px 0px #C1FDFD;
         }
-       .emote-chat {
-         background: none;
-         border: 0;
-         padding: 0 5px 0 0;
-         font-family: Verdana;
-         font-size: 9pt;
-         }
+       
+        /*************
+        * Ladder CSS *
+        *************/
+       
+        .ladder table, .ladder td, .ladder th {
+    border: 1px solid #0B1361;
+        }
+       
+        .ladder th {
+                background: #B3E6FF;
+        }
+       
+        .ladder td {
+                background: rgba(179, 230, 255, 0.7);
+        }
