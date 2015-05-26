@@ -4,7 +4,7 @@
        
         body {
                 color: #FFF;
-                background: #EEE url("http://i.imgur.com/9SmKCwH.jpg") no-repeat left fixed;
+                background: #EEE url("http://i.imgur.com/vIpi4X5.jpg") no-repeat left fixed;
         }
        
         .ps-room.ps-room-light {
@@ -109,12 +109,12 @@
         ***********/
        
         .chat-log {
-                background: url("http://i.imgur.com/6fo4WLb.jpg");
+                background: url("http://i.imgur.com/a78Tbal.png");
                 color: black;
         }
  
         .chat-log-add {
-                background: url("http://i.imgur.com/lkB2uSQ.jpg");
+                background: rgba(244,244,244,.8)
         }
        
         .userlist {
@@ -197,7 +197,7 @@
  
         .tournament-bracket {
                 font-size: 9pt;
-                background: url("http://i.imgur.com/2yYNFHP.jpg?1");
+                background: url("http://i.imgur.com/8M6x1je.png?4");
                 border-top: 1px solid #AAA;
         }
  
@@ -205,17 +205,14 @@
                 font-size: 9pt;
                 background: url("http://i.imgur.com/2yYNFHP.jpg?1");
         }
- 
-        .tournament-bracket-table-cell-result-win {
-                background-color: rgba(0, 255, 0, 0.6)
+        
+        .tournament-bracket-tree-node-loss>rect {
+                fill: rgba(255, 208, 217, 0.7);
         }
- 
-        .tournament-bracket-table-cell-result-draw {
-                background-color: rgba(255, 255, 0, 0.6)
-        }
- 
-        .tournament-bracket-table-cell-result-loss {
-                background-color: rgba(255, 0, 0, 0.6)
+
+         .tournament-bracket-tree-node-win>rect {
+                fill: rgba(191, 245, 155, 0.7);
+                stroke: rgba(17, 142, 17, 0.5);
         }
  
         .tournament-bracket-tree-link {
