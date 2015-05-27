@@ -28,6 +28,15 @@
                 background: rgba(0, 0, 0, 0.3);
         }
        
+       .astext{ 
+                border: none;
+                background: none;
+                padding:0;
+                height: -20em;
+                font-family:Verdana,sans-serif;
+                font-size: 12px;
+                cursor: pointer;
+        }
        
         /*************
         * Header CSS *
