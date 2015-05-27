@@ -6,7 +6,7 @@ module.exports = {
         target = this.splitTarget(target, true);
         var targetUser = this.targetUser;
         if (!targetUser) return this.sendReply("User '" + this.targetUsername + "' is not online.");
-        if (!this.can('makeroom')) return false;
+        if (!this.can('declare')) return false;
         if (!room.auth) room.auth = room.chatRoomData.auth = {};
         if (!room.leagueauth) room.leagueauth = room.chatRoomData.leagueauth = {};
         var name = targetUser.name;
@@ -30,7 +30,7 @@ module.exports = {
         if (!userid || userid === '') return this.sendReply("User '" + name + "' does not exist.");
 
         if (room.auth[userid] !== '#') return this.sendReply("User '" + name + "' is not a room founder.");
-        if (!this.can('makeroom', null, room)) return false;
+        if (!this.can('declare')) return false;
 
         delete room.auth[userid];
         delete room.founder;
