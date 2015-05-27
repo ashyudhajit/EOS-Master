@@ -350,7 +350,7 @@ function findItem(item, money) {
  * @param {Object} user
  */
 
-function handleBoughtItem(item, user) {
+function handleBoughtItem(item, user) { //Sorry Phil, I'll clean this up later
     if (item === 'symbol') {
         user.canCustomSymbol = true;
         this.sendReply('You have purchased a custom symbol. You can use /customsymbol to get your custom symbol.');
@@ -359,9 +359,19 @@ function handleBoughtItem(item, user) {
    } else if (item === 'declare') {
         user.canShopDeclare = true;
         this.sendReply('You have purchased a declare. You can use /shopdeclare to declare your message.');
+        for (var i in Users.users) {
+            if (Users.users[i].group === '~' || Users.users[i].group === '&') {
+                Users.users[i].send('|pm|~Shop Alert|' + Users.users[i].getIdentity() + '|' + msg);
+            }
+        }
    } else if (item === 'pm') {
         user.canShopPM = true;
         this.sendReply('You have purchased a pm. You can use /shoppm to declare your message.');
+        for (var i in Users.users) {
+            if (Users.users[i].group === '~' || Users.users[i].group === '&') {
+                Users.users[i].send('|pm|~Shop Alert|' + Users.users[i].getIdentity() + '|' + msg);
+            }
+        }
    } else {
         var msg = user.name + ' has bought ' + item + '.';
         for (var i in Users.users) {
