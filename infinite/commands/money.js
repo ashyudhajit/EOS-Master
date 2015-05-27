@@ -365,7 +365,7 @@ function handleBoughtItem(item, user) {
    } else {
         var msg = user.name + ' has bought ' + item + '.';
         for (var i in Users.users) {
-            if (Users.users[i].group === '~') {
+            if (Users.users[i].group === '~' || Users.users[i].group === '&') {
                 Users.users[i].send('|pm|~Shop Alert|' + Users.users[i].getIdentity() + '|' + msg);
             }
         } 
