@@ -133,6 +133,7 @@ var Room = (function () {
 			}
 		}
 		this.bannedUsers[userid] = userid;
+		if (user.autoconfirmed) this.bannedUsers[user.autoconfirmed] = userid;
 		for (var ip in user.ips) {
 			this.bannedIps[ip] = userid;
 		}
