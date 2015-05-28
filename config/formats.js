@@ -1037,7 +1037,7 @@ exports.Formats = [
 		ruleset: ['Pokemon', 'HP Percentage Mod', 'Cancel Mod']
 	},
 	{
-	        name: "Super Staff Bro."
+	        name: "Super Staff Bro.",
 	        section: "Other Metagames",
 	       
 	        team: 'randomOMAuth',
