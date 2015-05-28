@@ -750,6 +750,9 @@ var commands = {
 			var seconds = ((milliseconds / 1000) % 60);
 			var remainingTime = Math.round(seconds - 60);
 			if ((Date.now() - user[tournament.room.id].joinTime) < 60000) return this.sendReply('You have recently joined the tournament. To prevent joining and leaving flood, you must wait '+(remainingTime - remainingTime * 2)+' seconds before joining again.');
+			tournament.addUser(user, false, this);
+			this.sendReply('You have joined the tournament.');
+			user[tournament.room.id].joinTime = Date.now();
 		},
 		l: 'leave',
 		out: 'leave',
