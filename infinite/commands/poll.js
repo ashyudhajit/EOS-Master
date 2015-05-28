@@ -39,6 +39,20 @@ module.exports = {
 
         return this.sendReply('You are now voting for ' + target + '.');
     },
+    
+    easytour: 'etour',
+    elimtour: 'etour',
+	etour: function (target, room, user) {
+		if (!this.can('broadcast', null, room)) return;
+		this.parse('/tour new ' + target + ', elimination');
+	},
+	
+	roundrobintour: 'rtour',
+	cancertour: 'rtour',
+	rtour: function (target, room, user) {
+		if (!this.can('broadcast', null, room)) return;
+		this.parse('/tour new ' + target + ', elimination');
+	},
 
     pr: 'pollremind',
     pollremind: function(target, room, user) {
