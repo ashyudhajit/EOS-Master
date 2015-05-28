@@ -12,11 +12,11 @@ var packsKeys = Object.keys(packs);
 
 var shop = [
     ['Poke', 'Get a card that has a <b>high chance of being a common or uncommon card</b>. Very low chance for a higher rarity card.', 3],
-    ['Great', 'Get a card that has a high chance of being a common or uncommon card. <b>Low chance for a higher rarity card.</b>', 10],
-    ['Ultra', 'Get a card that has a <b>high chance of being a uncommon or rare card</b>. Medium chance for a higher rarity card.', 24],
-    ['Master', 'Get a card that has a high chance of being a <b>rare or epic card</b>. Medium chance for a higher rarity card.', 50],
-    ['Smogon', 'Get a card that has a high chance of being a <b>epic or legendary card.</b>', 80],
-    ['Infinite', 'Get a card that has a <b>very high chance of being a legendary card.</b>', 150]
+    ['Great', 'Get a card that has a high chance of being a common or uncommon card. <b>Low chance for a higher rarity card.</b>', 5],
+    ['Ultra', 'Get a card that has a <b>high chance of being a uncommon or rare card</b>. Medium chance for a higher rarity card.', 10],
+    ['Master', 'Get a card that has a high chance of being a <b>rare or epic card</b>. Medium chance for a higher rarity card.', 20],
+    ['Smogon', 'Get a card that has a high chance of being a <b>epic or legendary card.</b>', 30],
+    ['Infinite', 'Get a card that has a <b>very high chance of being a legendary card.</b>', 50]
 ];
 
 var shopDisplay = getShopDisplay(shop);
