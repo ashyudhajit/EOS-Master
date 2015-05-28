@@ -1045,7 +1045,7 @@ exports.Formats = [
 		searchShow: false,
 		debug: true,
 		ruleset: ['Pokemon', 'HP Percentage Mod', 'Cancel Mod']
-	}
+	},
 	{
 	        name: "Super Staff Bros.: Other Metas",
 	        section: "Other Metagames",
