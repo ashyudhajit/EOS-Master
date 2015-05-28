@@ -12,7 +12,7 @@ var Tournament;
 exports.tournaments = {};
 
 function usersToNames(users) {
-	return users.map(function (user) { return user.name; });
+	return users.map(function (user) { return user.name; });j
 }
 
 function createTournamentGenerator(generator, args, output) {
@@ -741,7 +741,15 @@ var commands = {
 		j: 'join',
 		in: 'join',
 		join: function (tournament, user) {
-			tournament.addUser(user, false, this);
+			if (usersToNames(tournament.generator.getUsers().sort()).indexOf(user.name) > -1) return this.sendReply("You're already in the tournament.");
+			if (!user[tournament.room.id]) {
+				user[tournament.room.id] = {};
+				user[tournament.room.id].joinTime = Date.now() - 60000;
+			}
+			var milliseconds = (Date.now() - user[tournament.room.id].joinTime);
+			var seconds = ((milliseconds / 1000) % 60);
+			var remainingTime = Math.round(seconds - 60);
+			if ((Date.now() - user[tournament.room.id].joinTime) < 60000) return this.sendReply('You have recently joined the tournament. To prevent joining and leaving flood, you must wait '+(remainingTime - remainingTime * 2)+' seconds before joining again.');
 		},
 		l: 'leave',
 		out: 'leave',
