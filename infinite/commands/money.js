@@ -253,6 +253,7 @@ module.exports = {
     },
     
     moneylog: function(target,room,user) {
+	var params = cmdParts.join(' ').split(',').map(function (param) { return param.trim(); });
     	var target = params.shift();
 				var lines = 0;
 				if (!target.match('[^0-9]')) {
