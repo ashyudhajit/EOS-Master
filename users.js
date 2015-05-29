@@ -585,6 +585,7 @@ User = (function () {
 				if (room.auth[this.userid]) {
 					return room.auth[this.userid] + this.name;
 				}
+				if (room.autorank) return room.autorank + this.name + (this.awayName || '');
 				if (room.isPrivate === true) return ' ' + this.name;
 			}
 		}
