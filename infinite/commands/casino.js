@@ -76,8 +76,8 @@ var Economy = require('../economy');
                                  var secondNumber = Math.floor(6 * Math.random()) + 1;
                                  var firstName = Users.get(room.dice.player1).name;
                                  var secondName = Users.get(room.dice.player2).name;
-                                 Economy.get(user.name).then(function(firstMoney){
-                                 Economy.get(user.name).then(function(secondMoney){
+                                 firstMoney = Economy.get(toId(firstName));
+                                 secondMoney = Economy.get(toId(secondName));
                                                  if (firstMoney < room.dice.bet) {
                                                         room.dice.status = 0;
                                                          delete room.dice.player1;
@@ -134,8 +134,6 @@ var Economy = require('../economy');
                                                  room.addRaw(output);
                                                  room.update();
                          }
-                 });
-                         });
                  });
         },
  
