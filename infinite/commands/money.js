@@ -110,7 +110,7 @@ module.exports = {
             })
             .spread(function(targetTotal, userTotal) {
                 self.sendReply('You have successfully transferred ' + currency + '. You now have ' + userTotal + Economy.currency(userTotal) + '.');
-                logMoney(user.name + ' transferred ' + currency + ' to ' + this.targetUsername + '.');
+                logMoney(user.name + ' transferred ' + currency + ' to ' + targetName + '.');
                 if (Users.get(targetName)) {
                     Users.get(targetName).connections[0].sendTo(room.id, user.name + ' has transferred ' + currency + '. You now have ' + targetTotal + Economy.currency(targetTotal) + '.');
                 }
