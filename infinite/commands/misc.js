@@ -106,6 +106,13 @@ module.exports = {
         }
     },
     
+    randp: 'randompokemon',
+    randompokemon: function (target, room, user) {
+        if (!this.canBroadcast()) return;
+        var x = Math.floor((Math.random() * 721) + 1);
+        return this.parse('/data ' + x);
+    },
+    
     leagueauthhelp: function (target, room, user) {
         if (!this.canBroadcast()) return;
             return this.sendReplyBox('\
