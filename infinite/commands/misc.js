@@ -111,7 +111,7 @@ module.exports = {
         if (!this.canBroadcast()) return;
         var x = Math.floor((Math.random() * 721) + 1);
         if (this.broadcasting) {
-            return this.parse('!data " +x);
+            return this.parse('!data ' +x);
          } else {
              return this.parse('/data ' + x);
          }
