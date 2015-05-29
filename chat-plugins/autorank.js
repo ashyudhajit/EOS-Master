@@ -1,4 +1,4 @@
-module.exports = [
+exports.commands = {
 	 autovoice: 'autorank',
 	 autodriver: 'autorank',
 	 automod: 'autorank',
@@ -44,4 +44,4 @@ module.exports = [
 	 	return this.sendReply("Group \"" + target + "\" not found.");
 	 }
 	 
-	 ]
+}
