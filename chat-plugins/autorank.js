@@ -44,4 +44,4 @@ exports.commands = {
 	 	return this.sendReply("Group \"" + target + "\" not found.");
 	 }
 	 
-}
+};
