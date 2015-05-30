@@ -227,6 +227,7 @@ module.exports = {
 	 				targetRoom.shopList = new Array();
 					targetRoom.chatRoomData.shop = targetRoom.shop;
 					targetRoom.chatRoomData.shopList = targetRoom.shopList;
+					targetRoom.hasShop = true;
 					Rooms.global.writeChatRoomData();
     },
 
