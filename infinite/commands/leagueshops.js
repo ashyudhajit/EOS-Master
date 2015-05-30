@@ -24,13 +24,13 @@ module.exports = {
 	 		default:
 	 			if (!this.canBroadcast()) return;
 	 			if (room.shopList.length < 1) return this.sendReplyBox('<center><b><u>This shop has no items!</u></b></center>');
-	 			var output = '<center><h4><b><u><font color="#24678d">' + Tools.escapeHTML(room.title) + '\'s Shop</font></u></b></h4><table border="1" cellspacing ="0" cellpadding="3"><tr><th>Item</th><th>Description</th><th>Price</th></tr>';
+	 			var output = '<center><h2><u>' + Tools.escapeHTML(room.title) + '\'s Shop</u></h2><table cellpadding="6" border="1"><table cellpadding="6" border="1"><tr><td align="center"><h3><u>Item</u></h3></td><td align="center"><h3><u>Description</u></h3></td><td align="center"><h3><u>Price</u></h3></td></tr>';
 	 			for (var u in room.shopList) {
 					if (!room.shop[room.shopList[u]] || !room.shop[room.shopList[u]].name || !room.shop[room.shopList[u]].description || !room.shop[room.shopList[u]].price) continue;
 	 				output += '<tr><td><button name="send" value="/leagueshop buy ' + Tools.escapeHTML(room.shopList[u]) + '" >' + Tools.escapeHTML(room.shop[room.shopList[u]].name) +
 	 				'</button></td><td>' + Tools.escapeHTML(room.shop[room.shopList[u]].description.toString()) + '</td><td>' + room.shop[room.shopList[u]].price + '</td></tr>';
 	 			}
-	 			output += '</center><br />';
+	 			output += '</table></center><br />';
 	 			this.sendReplyBox(output);
 	 			break;
 	 		case 'add':
