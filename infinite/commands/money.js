@@ -313,9 +313,9 @@ function getShopDisplay(shop) {
     var start = 0;
     while (start < shop.length) {
         display += '<tr>\
-                        <td><button name="send" value="/buy ' + shop[start][0] + '">' + shop[start][0] + '</button>' + '</td>\
-                        <td>' + shop[start][1] + '</td>\
-                        <td>' + shop[start][2] + '</td>\
+                        <td align="center"><button name="send" value="/buy ' + shop[start][0] + '"><b>' + shop[start][0] + '</b></button>' + '</td>\
+                        <td align="center">' + shop[start][1] + '</td>\
+                        <td align="center">' + shop[start][2] + '</td>\
                     </tr>';
         start++;
     }
