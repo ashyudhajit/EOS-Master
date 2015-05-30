@@ -9,7 +9,7 @@ module.exports = {
 	leagueshop: function(target, room, user) {
 	 /*	if (!room.isLeague) return this.sendReply('/leagueshop - This room is not a league.'); */
 	 	if (!room.founder) return this.sendReply('/leagueshop - league shops require a room founder.');
-	 	if (!room.hasShop) return this.sendReply('/leagueshop - this room does not have a leagueshop enabled.')
+	 	if (!room.hasShop) return this.sendReply('/leagueshop - this room does not have a leagueshop enabled.');
 	 	if (!room.shopList) room.shopList = [];
 	 	if (!target) var target = '';
 	 	var self = this;
