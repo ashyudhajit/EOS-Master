@@ -44,8 +44,9 @@ Tournament.prototype.onTournamentEnd = function() {
     var tourSize = this.generator.users.size;
 
     if (this.room.isOfficial && tourSize >= sizeRequiredToEarn) {
-        var firstMoney = Math.round(tourSize);
+        var firstMoney = Math.round(tourSize / 2);
         var secondMoney = Math.round(firstMoney / 2);
+        
 
         Economy.give(wid, firstMoney);
         var pack = GiveTourPack(wid);
