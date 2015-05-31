@@ -156,11 +156,19 @@ module.exports = {
         room.addRaw('<strong><font color="' + colour + '">~~ ' + Tools.escapeHTML(message) + ' ~~</font></strong>');
         user.disconnectAll();
     },
+    
+    easytour: 'etour',
+    etour: function (target, room, user) {
+	if (!this.can('broadcast', null, room)) return;
+	this.parse('/tour new ' + target + ', elimination');
+	
+    },
 
     emotes: 'emoticons',
     emoticons: function() {
         if (!this.canBroadcast()) return;
         this.sendReply('|raw|' + emotes_table);
+        
     },
 
     poofoff: 'nopoof',
