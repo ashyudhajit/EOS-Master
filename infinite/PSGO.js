@@ -62,7 +62,7 @@ var cards = {
     },
 
     uncommon: {
-        'abomasnow': {card: 'http://http://assets9.pokemon.com/assets/cms2/img/cards/web/BW10/BW10_EN_26.png', points: 170},
+        'abomasnow': {card: 'http://assets9.pokemon.com/assets/cms2/img/cards/web/BW10/BW10_EN_26.png', points: 170},
         'avalaugg': {card: 'http://assets9.pokemon.com/assets/cms2/img/cards/web/XY2/XY2_EN_31.png', points: 390},
         'blissey': {card: 'http://assets1.pokemon.com/assets/cms2/img/cards/web/HGSS1/HGSS1_EN_36.png', points: 310},
         'combusken': {card: 'http://assets23.pokemon.com/assets/cms2/img/cards/web/EX1/EX1_EN_28.png', points: 210},
