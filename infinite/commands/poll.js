@@ -30,7 +30,6 @@ module.exports = {
     vote: function(target, room, user) {
         if (!Poll[room.id]) Poll.reset(room.id);
         if (!Poll[room.id].question) return this.sendReply('There is no poll currently going on in this room.');
-        if (!this.canTalk()) return;
         if (!target) return this.sendReply('/vote [option] - Vote for an option in the poll.');
         if (Poll[room.id].optionList.indexOf(target.toLowerCase()) === -1) return this.sendReply('\'' + target + '\' is not an option for the current poll.');
 
