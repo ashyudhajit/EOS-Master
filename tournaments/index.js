@@ -742,7 +742,6 @@ var commands = {
 		in: 'join',
 		join: function (tournament, user) {
 			if (usersToNames(tournament.generator.getUsers().sort()).indexOf(user.name) > -1) return this.sendReply("You're already in the tournament.");
-			if (!this.canTalk()) return;
 			if (!user[tournament.room.id]) {
 				user[tournament.room.id] = {};
 				user[tournament.room.id].joinTime = Date.now() - 60000;
