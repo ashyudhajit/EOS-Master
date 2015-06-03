@@ -12,11 +12,11 @@ var packsKeys = Object.keys(packs);
 
 var shop = [
     ['Poke', 'Get a card that has a <b>high chance of being a common or uncommon card</b>. Very low chance for a higher rarity card.', 3],
-    ['Great', 'Get a card that has a high chance of being a common or uncommon card. <b>Low chance for a higher rarity card.</b>', 10],
-    ['Ultra', 'Get a card that has a <b>high chance of being a uncommon or rare card</b>. Medium chance for a higher rarity card.', 24],
-    ['Master', 'Get a card that has a high chance of being a <b>rare or epic card</b>. Medium chance for a higher rarity card.', 50],
-    ['Smogon', 'Get a card that has a high chance of being a <b>epic or legendary card.</b>', 70],
-    ['Eos', 'Get a card that has a <b>very high chance of being a legendary card.</b>', 100]
+    ['Great', 'Get a card that has a high chance of being a common or uncommon card. <b>Low chance for a higher rarity card.</b>', 5],
+    ['Ultra', 'Get a card that has a <b>high chance of being a uncommon or rare card</b>. Medium chance for a higher rarity card.', 10],
+    ['Master', 'Get a card that has a high chance of being a <b>rare or epic card</b>. Medium chance for a higher rarity card.', 20],
+    ['Smogon', 'Get a card that has a high chance of being a <b>epic or legendary card.</b>', 30],
+    ['Eos', 'Get a card that has a <b>very high chance of being a legendary card.</b>', 40]
 ];
 
 var shopDisplay = getShopDisplay(shop);
@@ -480,16 +480,16 @@ module.exports = {
         target = target.toLowerCase();
         if (target === 'rank') {
             return this.sendReplyBox('\
-                1st Place - 300 Bucks + (Total Points / 200 Points) Bucks<br>\
-                2nd Place - 150 Bucks + (Total Points / 200 Points) Bucks<br>\
-                3rd Place - 100 Bucks + (Total Points / 200 Points) Bucks<br>\
-                4th Place - 80 Bucks + (Total Points / 200 Points) Bucks<br>\
-                5th Place - 60 Bucks + (Total Points / 200 Points) Bucks<br>\
-                6th Place - 40 Bucks + (Total Points / 200 Points) Bucks<br>\
-                7th Place - 20 Bucks + (Total Points / 200 Points) Bucks<br>\
-                8th Place - 12 Bucks + (Total Points / 200 Points) Bucks<br>\
-                9th Place - 5 Bucks + (Total Points / 200 Points) Bucks<br>\
-                10th Place - 3 Bucks + (Total Points / 200 Points) Bucks\
+                1st Place - 100 Bucks + (Total Points / 500 Points) Bucks<br>\
+                2nd Place - 90 Bucks + (Total Points / 500 Points) Bucks<br>\
+                3rd Place - 80 Bucks + (Total Points / 500 Points) Bucks<br>\
+                4th Place - 70 Bucks + (Total Points / 500 Points) Bucks<br>\
+                5th Place - 60 Bucks + (Total Points / 500 Points) Bucks<br>\
+                6th Place - 50 Bucks + (Total Points / 500 Points) Bucks<br>\
+                7th Place - 40 Bucks + (Total Points / 500 Points) Bucks<br>\
+                8th Place - 30 Bucks + (Total Points / 500 Points) Bucks<br>\
+                9th Place - 20 Bucks + (Total Points / 500 Points) Bucks<br>\
+                10th Place - 10 Bucks + (Total Points / 500 Points) Bucks\
                 ');
         }
         if (target === 'points') {
