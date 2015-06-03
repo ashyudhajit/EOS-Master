@@ -336,7 +336,7 @@ exports.getCards = getCards;
 function generate(cards, rarity) {
     var group = [];
     for (var i in cards) {
-        cards[i].id = crypto.randomBytes(4).toString('hex');
+        cards[i].id = crypto.randomBytes(6).toString('hex');
         cards[i].name = i;
         cards[i].rarity = rarity;
         group.push(cards[i]);
