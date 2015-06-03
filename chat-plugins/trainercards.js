@@ -552,6 +552,12 @@ exports.commands = {
         if (!this.canBroadcast()) return false;
         return this.sendReplyBox('<center><img src="http://i.imgur.com/2XBIXOF.png"><br /><img src="http://i.imgur.com/spUCRBX.gif"><br /><b>Ace:</b> Haruhi Suzumiya<br /><br><b><a href="https://www.youtube.com/watch?v=lVYV-5TeYfg"><button>I Believe</button></a><a href="https://www.youtube.com/watch?v=WWB01IuMvzA"><button>God Knows</button></a><a href="https://www.youtube.com/watch?v=c5G5bD2Do-k"><button>The Dance</button></a><br /><br><b>Dreams start by believing.');
     },
+    
+    tylacto: 'ty',
+    ty: function(target, room, user) {
+        if (!this.canBroadcast()) return false;
+        return this.sendReplyBox('<center><b><strong> <img src="http://i1053.photobucket.com/albums/s473/Supah_Red/black_kyurem_gif__by_britishstarr-d509ygz.gif" width="100" height="110"> <img src="http://33.media.tumblr.com/01c13cb909e1936c4497d56d8de05d78/tumblr_mxpx81FEMV1s6hco9o2_500.gif" width="100" height="110"> <img src="http://25.media.tumblr.com/tumblr_me6fdcvTTF1r1n5pqo1_500.gif" width="100" height="110"> <br><font size="2" color="black">Outrage Spam Fgt </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2"  color="brown">Mold Breaker Fgt</font><br><font size="2" color="blue">Biggest Fgt Of Them All</font><br><img src="http://31.media.tumblr.com/9c77fb5630504da806464f80097aeb7f/tumblr_mie1te7yfk1r5fhkdo1_500.gif" width="100" height="110"> <img src="https://lh6.googleusercontent.com/-5Kcic4SmwYo/VI2_uEiAMuI/AAAAAAAADBQ/UhQ9CbzTbVs/w271-h204/Luxrayispowerfulgif.gif" width="100" height="110"> <img src="https://38.media.tumblr.com/faca98247be1bc1ea1c4c323ce2f0538/tumblr_nokq7dXi4P1rxmesfo5_500.gif" width="100" height="110">  <br> <font size="2" color="orange">Lum Berry Fgt &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2" color="FFCC00">BAE <3 <3 <3</font><font size="2" color="ligblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Volt Absorb Fgt</font> <br> <hr width="53%" color="black"><font size="2" color="black">Tylacto :D (Not Bias)<hr width="53%" color="black">')
+    },
 
     /*********************************************************
      * TC'S STOP HERE!
