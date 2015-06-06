@@ -117,6 +117,17 @@ module.exports = {
          }
     },
     
+    toggleauth: function(target, room, user) {
+        if (!this.can('roommod', null, room)) return false;
+        room.showAuth = !room.showAuth;
+        this.sendReply('Done.');
+        if (room.showAuth) {
+            this.add("|raw|<div class=\"broadcast-red\"><b>Leagueauth will show</b></div>");
+        } else {
+            this.add("|raw|<div class=\"broadcast-blue\"><b>Leagueauth will not show</div>");
+        }
+    },   
+    
     leagueauthhelp: function (target, room, user) {
         if (!this.canBroadcast()) return;
             return this.sendReplyBox('\
