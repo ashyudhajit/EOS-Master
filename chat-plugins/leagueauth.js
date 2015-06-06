@@ -1,8 +1,8 @@
 //ranking is mostly arbitrary
-var Groupsranking = [' ', 'T', 'L', 'F', 'ß', 'α', 'P', 'Θ', 'Σ', 'C', ];
+var Groupsranking = [' ', 'τ', '£', 'ϝ', 'ß', 'α', 'ϸ', 'Θ', 'Σ', '©', ];
 var Groups = {
 
-        'C': {
+        '©': {
                 id: "champion",
                 name: "Champion",
                 rank: 9
@@ -17,7 +17,7 @@ var Groups = {
                 name: "Royal Guard",
                 rank: 7
         },
-        'P': {
+        'ϸ': {
                 id: "professor",
                 name: "Professor",
                 rank: 6
@@ -32,17 +32,17 @@ var Groups = {
                 name: "Frontier Brain",
                 rank: 4
         },        
-        'F': {
+        'ϝ': {
                 id: "frontier",
                 name: "Frontier",
                 rank: 3
         },
-        'L': {
+        '£': {
                 id: "gleader",
                 name: "Gym Leader",
                 rank: 2
         },
-        'T': {
+        'τ': {
                 id: "trainer",
                 name: "Gym Trainer",
                 rank: 1
