@@ -85,9 +85,6 @@ exports.commands = {
                 var currentGroup = ((room.leagueauth&& room.leagueauth[userid]) || ' ')[0];
                 var nextGroup = target;
                 if (target === 'leaguedeauth') nextGroup = Groupsranking[0];
-                if (!nextGroup) {
-			return this.sendReply("Please specify a group such as /roomgldeader or /roomtrainer");
-		}
                
                 if (cmd==='roomtrainer') {
                         nextGroup = Groupsranking[1];
@@ -110,6 +107,10 @@ exports.commands = {
                 } else if (cmd==='leaguedeauth') {
                         nextGroup = Groupsranking[0];
                 }
+                
+                if (!nextGroup) {
+			return this.sendReply("Please specify a group such as /roomgldeader or /roomtrainer");
+		}
 		
 		if (!Groups[nextGroup]) {
                         return this.sendReply("Group '" + nextGroup + "' does not exist.");
