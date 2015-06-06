@@ -223,10 +223,12 @@ module.exports = {
     	var targetRoom = Rooms(toId(target));
     	targetRoom.add('|raw|<div class="broadcast-green"><b>'+user.name+' has just added a league shop to this room.</b></div>');
 	 				targetRoom.update();
-	 				targetRoom.shop = new Object();
-	 				targetRoom.shopList = new Array();
-					targetRoom.chatRoomData.shop = targetRoom.shop;
-					targetRoom.chatRoomData.shopList = targetRoom.shopList;
+	 				if (!targetRoom.shop) {
+	 					targetRoom.shop = new Object();
+	 					targetRoom.shopList = new Array();
+						targetRoom.chatRoomData.shop = targetRoom.shop;
+						targetRoom.chatRoomData.shopList = targetRoom.shopList;
+	 				}
 					if (!targetRoom.hasShop) targetRoom.hasShop = targetRoom.chatRoomData.hasShop = true;
 					Rooms.global.writeChatRoomData();
     },
