@@ -301,7 +301,7 @@ module.exports = {
     toggleemotes: 'toggleemoticons',
     toggleemoticon: 'toggleemoticon',
     toggleemoticons: function(target, room, user) {
-        if (!user.can('toggleemoticons')) return false;
+        if (!this.can('declare', null, room)) return false;
         room.disableEmoticons = !room.disableEmoticons;
         this.sendReply('Disallowing emoticons is set to ' + room.allowEmoticons + ' in this room.');
         if (room.disableEmoticons) {
