@@ -11,11 +11,6 @@ Users.User.prototype.getIdentity = function(roomid) {
             return '!' + this.name;
         }
         var room = Rooms.rooms[roomid];
-        if (room && room.leagueauth) {
-            if (room.leagueauth[this.userid]) {
-                return room.leagueauth[this.userid] + this.name;
-            }
-        }
         if (room && room.auth) {
             if (room.auth[this.userid]) {
                 return room.auth[this.userid] + this.name;
@@ -23,6 +18,11 @@ Users.User.prototype.getIdentity = function(roomid) {
             if (room.isPrivate === true) return ' ' + this.name;
         }
     }
+        if (room && room.leagueauth) {
+            if (room.leagueauth[this.userid]) {
+                return room.leagueauth[this.userid] + this.name;
+            }
+        }
     if (this.hiding) {
       return ' ' + this.name;
     }
