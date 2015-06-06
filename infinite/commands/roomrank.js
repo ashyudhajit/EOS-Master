@@ -85,7 +85,7 @@ module.exports = {
         }
     },
 
-    roomdemote: 'roompromote',
+ /*   roomdemote: 'roompromote',
     roompromote: function (target, room, user, connection, cmd) {
         if (!room.auth) {
             this.sendReply("/roompromote - This room isn't designed for per-room moderation");
@@ -144,7 +144,7 @@ module.exports = {
 
         if (targetUser) targetUser.updateIdentity(room.id);
         if (room.chatRoomData) Rooms.global.writeChatRoomData();
-    },
+    },*/
 
     roomhelp: function (target, room, user) {
         if (room.id === 'lobby' || room.battle) return this.sendReply("This command is too spammy for lobby/battles.");
