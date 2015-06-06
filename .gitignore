@@ -4,7 +4,6 @@
 /gulp-cache
 npm-debug.log
 infinite/mongo.js
-chat-plugins/leagueauth.js
 chat-plugins/badgesystem.js
 
 # boilerplate #
