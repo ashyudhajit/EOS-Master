@@ -18,7 +18,7 @@ Users.User.prototype.getIdentity = function(roomid) {
             if (room.isPrivate === true) return ' ' + this.name;
         }
     }
-        if (room && room.leagueauth) {
+        if (room && room.leagueauth && room.showAuth) {
             if (room.leagueauth[this.userid]) {
                 return room.leagueauth[this.userid] + this.name;
             }
