@@ -256,7 +256,7 @@ BattlePokemon = (function () {
 		this.canMegaEvo = this.battle.canMegaEvo(this);
 
 		if (!this.set.evs) {
-			this.set.evs = {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84};
+			this.set.evs = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0};
 		}
 		if (!this.set.ivs) {
 			this.set.ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
@@ -2233,7 +2233,7 @@ Battle = (function () {
 				// it's changed; call it off
 				continue;
 			}
-			if (status.effectType === 'Ability' && this.activePokemon && this.activePokemon !== target && !target.ignoringAbility() && this.activePokemon.getAbility().stopAttackEvents) {
+			if (status.effectType === 'Ability' && this.activePokemon && this.activePokemon !== thing && !this.activePokemon.ignoringAbility() && this.activePokemon.getAbility().stopAttackEvents) {
 				// ignore attacking events
 				var AttackingEvents = {
 					BeforeMove: 1,
@@ -2750,6 +2750,7 @@ Battle = (function () {
 				pokemon.newlySwitched = false;
 				pokemon.disabledMoves = {};
 				this.runEvent('DisableMove', pokemon);
+				if (!pokemon.ateBerry) pokemon.disableMove('belch');
 				if (pokemon.lastAttackedBy) {
 					if (pokemon.lastAttackedBy.pokemon.isActive) {
 						pokemon.lastAttackedBy.thisTurn = false;

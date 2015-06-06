@@ -53,6 +53,7 @@
     }
   ],
   "private": true,
+  "license": "MIT",
   "devDependencies": {
     "cache-swap": "~0.2.0",
     "grunt": "^0.4.5",
