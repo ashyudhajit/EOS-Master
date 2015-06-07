@@ -2010,7 +2010,7 @@ var commands = exports.commands = {
 		if (!this.targetUser) {
 			return this.sendReply("The user '" + this.targetUsername + "' does not exist.");
 		}
-		if (!this.can('mute', this.targetUser)) {
+		if (!this.can('declare', this.targetUser)) {
 			return false;
 		}
 
