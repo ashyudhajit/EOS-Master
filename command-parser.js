@@ -14,7 +14,7 @@
  * @license MIT license
  */
 
-/*
+/*e
 
 To reload chat commands:
 
@@ -454,7 +454,10 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 	if (message.charAt(0) === '/' && message.charAt(1) !== '/') {
 		return parse(message, room, user, connection, levelsDeep + 1);
 	}
-
+	if (nightclub[room.id]) {
+		room.addRaw('<div class="nightclub"><font size="3"><small>' + nightclubify((room.auth ? (room.auth[user.userid] || user.group) : user.group)) + "</small><b>" + nightclubify(Tools.escapeHTML(user.name) + ":") + "</b> " + nightclubify((message)) + '</font></div>');
+		return false;
+	}
 	return message;
 };
 
