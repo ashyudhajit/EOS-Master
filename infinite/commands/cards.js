@@ -459,13 +459,19 @@ module.exports = {
         if (!this.canBroadcast()) return;
         MarketPlace.find(function(err, items) {
             if (err) throw err;
+            if (target) {
+                var cleanTarget = toId(target);
+                if (cleanTarget === 'common' || cleanTarget === 'rare' || cleanTarget === 'legendary' || cleanTarget === 'epic' || cleanTarget === 'uncommon') {
+                    var isTarget = true;
+                }
+            }
             if (items.length <= 0) {
                 this.sendReply('MarketPlace is empty.');
                 return room.update();
             }
             var display = '<center><u><b>MarketPlace</b></u><br><br>';
             items.forEach(function(item) {
-                display += '<p><button name="send" value="/buyitem ' + item.cid + '">' + item.cid + ' <b><font color="' + colors[toTitleCase(item.rarity)] + '">' + toTitleCase(item.rarity) + '</font> ' + toTitleCase(item.name) + '</b> owned by <b>' + item.owner + '</b> - <b><font color="' + accent + '">' + item.price + Economy.currency(item.price) + '</font><b></button></p>';
+                if (isTarget && item.rarity === cleanTarget) display += '<p><button name="send" value="/buyitem ' + item.cid + '">' + item.cid + ' <b><font color="' + colors[toTitleCase(item.rarity)] + '">' + toTitleCase(item.rarity) + '</font> ' + toTitleCase(item.name) + '</b> owned by <b>' + item.owner + '</b> - <b><font color="' + accent + '">' + item.price + Economy.currency(item.price) + '</font><b></button></p>';
             });
             display += '<br>Use /buycard <i>id</i> to buy the card.</center>';
             this.sendReplyBox(display);
