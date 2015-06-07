@@ -68,7 +68,7 @@ module.exports = {
         if (!this.can('pmall')) return this.sendReply('/pmall - Access denied.');
         if (!target) return this.sendReply('/pmall [message] - PM all users in the server.');
 
-        var pmName = '~Server PM [Do not reply]';
+        var pmName = ' Server PM [Do not reply]';
 
         for (var i in Users.users) {
             var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;
