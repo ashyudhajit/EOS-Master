@@ -1,48 +1,48 @@
 //ranking is mostly arbitrary
-var Groupsranking = [' ', 'τ', '£', 'ϝ', 'ß', 'α', 'ϸ', 'Θ', 'Σ', '©', ];
+var Groupsranking = [' ', '\u03c4', '\u00a3', '\u03dd', '\u03b2', '\u039e', '\u03a9', '\u0398', '\u03a3', '\u00a9', ];
 var Groups = {
 
-        '©': {
+        '\u00a9': {
                 id: "champion",
                 name: "Champion",
                 rank: 9
         },
-        'Σ': {
+        '\u03a3': {
                 id: "elite",
                 name: "Elite",
                 rank: 8
         },
-        'Θ': {
+        '\u0398': {
                 id: "rg",
                 name: "Royal Guard",
                 rank: 7
         },
-        'ϸ': {
+        '\u03a9': {
                 id: "professor",
                 name: "Professor",
                 rank: 6
         },
-        'α': {
+        '\u039e': {
         	id: "ace",
         	name: "Ace",
         	rank: 5
         },
-        'ß': {
+        '\u03b2': {
                 id: "brain",
                 name: "Frontier Brain",
                 rank: 4
         },        
-        'ϝ': {
+        '\u03dd': {
                 id: "frontier",
                 name: "Frontier",
                 rank: 3
         },
-        '£': {
+        '\u00a3': {
                 id: "gleader",
                 name: "Gym Leader",
                 rank: 2
         },
-        'τ': {
+        '\u03c4': {
                 id: "trainer",
                 name: "Gym Trainer",
                 rank: 1
