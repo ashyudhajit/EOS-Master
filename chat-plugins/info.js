@@ -2010,7 +2010,7 @@ var commands = exports.commands = {
 		if (!this.targetUser) {
 			return this.sendReply("The user '" + this.targetUsername + "' does not exist.");
 		}
-		if (!this.can('declare', this.targetUser)) {
+		if (!this.can('promote', this.targetUser)) {
 			return false;
 		}
 
@@ -2026,7 +2026,7 @@ var commands = exports.commands = {
 		if (!target) return this.sendReply("Please specify a user.");
 		this.splitTarget(target);
 
-		if (!this.can('mute')) {
+		if (!this.can('promote', this.targetUser)) {
 			return false;
 		}
 
