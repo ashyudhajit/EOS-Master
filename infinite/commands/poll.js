@@ -50,7 +50,7 @@ module.exports = {
 	cancertour: 'rtour',
 	rtour: function (target, room, user) {
 		if (!this.can('broadcast', null, room)) return;
-		this.parse('/tour new ' + target + ', elimination');
+		this.parse('/tour new ' + target + ', roundrobin');
 	},
 
     pr: 'pollremind',
