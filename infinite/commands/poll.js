@@ -115,7 +115,7 @@ module.exports = {
     tierspoll: 'tierpoll',
     tierpoll: function(target, room, user) {
         if (!this.can('broadcast', null, room)) return this.sendReply('/tierpoll - Access denied.');
-        this.parse('/poll Tournament Tier, Ubers, OU, UU, RU, NU, PU, LC, Monotype, Anything Goes, Random Battle, Random Monotype, Doubles OU, Seasonal, Battle Factory, Battle Cup 1v1, Gen 1 Random Battle, 1v1, Super Staff Bros.');
+        this.parse('/poll Tournament Tier, Ubers, OU, UU, RU, NU, PU, LC, Monotype, Anything Goes, Random Battle, Random Monotype, Doubles OU, Seasonal, Battle Factory, Battle Cup 1v1, Challenge Cup, Gen 1 Random Battle, 1v1, Super Staff Bros.');
     },
 
     hv: 'helpvotes',
