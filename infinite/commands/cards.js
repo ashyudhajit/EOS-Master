@@ -260,7 +260,7 @@ module.exports = {
             }).done();
     },
 
-    cardstats: 'psgostats',
+/*    cardstats: 'psgostats',
     psgostats: function(target, room, user) {
         if (!user.can('cardstats')) return this.sendReply('/psgostats - Access denied.');
         if (!this.canBroadcast()) return;
@@ -288,7 +288,7 @@ module.exports = {
         stats.call(this, 'epic');
         stats.call(this, 'legendary');
         this.sendReply('Total Cards: ' + numCards);
-    },
+    },*/
 
     cardsladder: 'psgoladder',
     cardladder: 'psgoladder',
