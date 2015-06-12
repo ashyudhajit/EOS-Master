@@ -2,7 +2,6 @@ exports.BattleScripts = {
 	runMove: function (move, pokemon, target, sourceEffect) {
 		if (!sourceEffect && toId(move) !== 'struggle') {
 			var changedMove = this.runEvent('OverrideDecision', pokemon, target, move);
-			if (changedMove === false) return; // Linked: Encore hack
 			if (changedMove && changedMove !== true) {
 				move = changedMove;
 				target = null;
@@ -83,7 +82,7 @@ exports.BattleScripts = {
 				}
 
 				var linkedMoves = decision.pokemon.getLinkedMoves();
-				if (linkedMoves.length) {
+				if (linkedMoves.length && !linkedMoves.disabled) {
 					var decisionMove = toId(decision.move);
 					var index = linkedMoves.indexOf(decisionMove);
 					if (index !== -1) {
@@ -118,7 +117,7 @@ exports.BattleScripts = {
 
 					// Linked: if two moves are linked, the effective priority is minimized
 					var linkedMoves = decision.pokemon.getLinkedMoves();
-					if (linkedMoves.length) {
+					if (linkedMoves.length && !linkedMoves.disabled) {
 						var decisionMove = toId(decision.move);
 						var index = linkedMoves.indexOf(decisionMove);
 						if (index !== -1) {
@@ -150,6 +149,8 @@ exports.BattleScripts = {
 		}
 	},
 	runDecision: function (decision) {
+		this.currentDecision = decision;
+
 		var pokemon;
 
 		// returns whether or not we ended in a callback
@@ -389,7 +390,15 @@ exports.BattleScripts = {
 		getLinkedMoves: function () {
 			var linkedMoves = this.moveset.slice(0, 2);
 			if (linkedMoves.length !== 2 || linkedMoves[0].pp <= 0 || linkedMoves[1].pp <= 0) return [];
-			return linkedMoves.map('id');
+			var ret = [toId(linkedMoves[0]), toId(linkedMoves[1])];
+
+			// Disabling effects which won't abort execution of moves already added to battle event loop.
+			if (!this.ateBerry && ret.indexOf('belch') >= 0) {
+				ret.disabled = true;
+			} else if (this.hasItem('assaultvest') && (this.battle.getMove(ret[0]).category === 'Status' || this.battle.getMove(ret[1]).category === 'Status')) {
+				ret.disabled = true;
+			}
+			return ret;
 		},
 		hasLinkedMove: function (move) {
 			move = toId(move);

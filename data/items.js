@@ -2130,7 +2130,7 @@ exports.BattleItems = {
 			basePower: 100,
 			type: "Fairy"
 		},
-		onAfterDamage: function (damage, target, source, move) {
+		onAfterMoveSecondary: function (target, source, move) {
 			if (move.category === 'Physical') {
 				target.eatItem();
 			}
@@ -2140,7 +2140,7 @@ exports.BattleItems = {
 		},
 		num: -6,
 		gen: 6,
-		desc: "Raises holder's Defense by 1 stage if hit by a physical attack. Single use."
+		desc: "Raises holder's Defense by 1 stage after it is hit by a physical attack. Single use."
 	},
 	"kelpsyberry": {
 		id: "kelpsyberry",
@@ -2366,18 +2366,11 @@ exports.BattleItems = {
 			basePower: 30
 		},
 		onModifyDamage: function (damage, source, target, move) {
-			if (source) {
-				source.addVolatile('lifeorb');
-				return this.chainModify(1.3);
-			}
+			return this.chainModify(1.3);
 		},
-		effect: {
-			duration: 1,
-			onAfterMoveSecondarySelf: function (source, target, move) {
-				if (move && move.effectType === 'Move' && source && source.volatiles['lifeorb']) {
-					this.damage(source.maxhp / 10, source, source, this.getItem('lifeorb'));
-					source.removeVolatile('lifeorb');
-				}
+		onAfterMoveSecondarySelf: function (source, target, move) {
+			if (source && source !== target && move && move.category !== 'Status' && !move.ohko) {
+				this.damage(source.maxhp / 10, source, source, this.getItem('lifeorb'));
 			}
 		},
 		num: 270,
@@ -2648,7 +2641,7 @@ exports.BattleItems = {
 			basePower: 100,
 			type: "Dark"
 		},
-		onAfterDamage: function (damage, target, source, move) {
+		onAfterMoveSecondary: function (target, source, move) {
 			if (move.category === 'Special') {
 				target.eatItem();
 			}
@@ -2658,7 +2651,7 @@ exports.BattleItems = {
 		},
 		num: -6,
 		gen: 6,
-		desc: "Raises holder's Sp. Def by 1 stage if hit by a special attack. Single use."
+		desc: "Raises holder's Sp. Def by 1 stage after it is hit by a special attack. Single use."
 	},
 	"masterball": {
 		id: "masterball",
@@ -3988,7 +3981,7 @@ exports.BattleItems = {
 		},
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf: function (pokemon, target, move) {
-			if (move.category !== 'Status' && pokemon.lastDamage > 0) {
+			if (move.category !== 'Status') {
 				this.heal(pokemon.lastDamage / 8, pokemon);
 			}
 		},

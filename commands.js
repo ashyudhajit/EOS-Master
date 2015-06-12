@@ -28,6 +28,8 @@ var commands = exports.commands = {
 	},
 
 	auth: 'authority',
+	stafflist: 'authority',
+	globalauth: 'authority',
 	authlist: 'authority',
 	authority: function (target, room, user, connection) {
 		var rankLists = {};
@@ -229,6 +231,7 @@ var commands = exports.commands = {
 	unignorepmshelp: ["/unblockpms - Unblocks private messages. Block them with /blockpms."],
 
 	idle: 'away',
+	afk: 'away',
 	away: function (target, room, user) {
 		this.parse('/blockchallenges');
 		this.parse('/blockpms ' + target);
@@ -236,6 +239,7 @@ var commands = exports.commands = {
 	awayhelp: ["/away - Blocks challenges and private messages. Unblock them with /back."],
 
 	unaway: 'back',
+	unafk: 'back',
 	back: function () {
 		this.parse('/unblockpms');
 		this.parse('/unblockchallenges');
@@ -536,8 +540,13 @@ var commands = exports.commands = {
 		var name = targetUser ? targetUser.name : this.targetUsername;
 
 		if (!userid) return this.parse('/help roompromote');
-		if (!targetUser && (!room.auth || !room.auth[userid])) {
-			return this.sendReply("User '" + name + "' is offline and unauthed, and so can't be promoted.");
+		if (!room.auth || !room.auth[userid]) {
+			if (!targetUser) {
+				return this.sendReply("User '" + name + "' is offline and unauthed, and so can't be promoted.");
+			}
+			if (!targetUser.registered) {
+				return this.sendReply("User '" + name + "' is unregistered, and so can't be promoted.");
+			}
 		}
 
 		var currentGroup = ((room.auth && room.auth[userid]) || (room.isPrivate !== true && targetUser.group) || ' ');
@@ -709,44 +718,23 @@ var commands = exports.commands = {
 
 	autojoin: function (target, room, user, connection) {
 		Rooms.global.autojoinRooms(user, connection);
+		var targets = target.split(',');
+		var autojoins = [];
+		if (targets.length > 9 || Object.keys(connection.rooms).length > 1) return;
+		for (var i = 0; i < targets.length; i++) {
+			if (user.tryJoinRoom(targets[i], connection) === null) {
+				autojoins.push(targets[i]);
+			}
+		}
+		connection.autojoins = autojoins.join(',');
 	},
 
 	joim: 'join',
 	j: 'join',
 	join: function (target, room, user, connection) {
 		if (!target) return false;
-		var targetRoom = Rooms.search(target);
-		if (!targetRoom) {
-			return connection.sendTo(target, "|noinit|nonexistent|The room '" + target + "' does not exist.");
-		}
-		if (targetRoom.modjoin && !user.can('bypassall')) {
-			var userGroup = user.group;
-			if (targetRoom.auth) {
-				if (targetRoom.isPrivate === true) {
-					userGroup = ' ';
-				}
-				userGroup = targetRoom.auth[user.userid] || userGroup;
-			}
-			if (Config.groupsranking.indexOf(userGroup) < Config.groupsranking.indexOf(targetRoom.modjoin !== true ? targetRoom.modjoin : targetRoom.modchat)) {
-				return connection.sendTo(target, "|noinit|nonexistent|The room '" + target + "' does not exist.");
-			}
-		}
-		if (targetRoom.isPrivate) {
-			if (!user.named) {
-				return connection.sendTo(target, "|noinit|namerequired|You must have a name in order to join the room '" + target + "'.");
-			}
-		}
-
-		if (toId(target) !== targetRoom.id) {
-			connection.send(">" + toId(target) + "\n|deinit");
-		}
-
-		var joinResult = user.joinRoom(targetRoom, connection);
-		if (!joinResult) {
-			if (joinResult === null) {
-				return connection.sendTo(target, "|noinit|joinfailed|You are banned from the room '" + target + "'.");
-			}
-			return connection.sendTo(target, "|noinit|joinfailed|You do not have permission to join '" + target + "'.");
+		if (user.tryJoinRoom(target, connection) === null) {
+			connection.sendTo(target, "|noinit|namerequired|The room '" + target + "' does not exist.");
 		}
 	},
 
@@ -1057,7 +1045,7 @@ var commands = exports.commands = {
 		if (Users.lockedRanges[range]) return this.sendReply("The range " + range + " has already been temporarily locked.");
 
 		Users.lockRange(range, isIp);
-		this.addModCommand("" + user.name + " temporarily locked the range " + range + ".");
+		this.addModCommand("" + user.name + " temporarily locked the range: " + range);
 	},
 
 	unrangelock: 'rangeunlock',
@@ -1955,14 +1943,18 @@ var commands = exports.commands = {
 		target = toId(target);
 		if (room.requestKickInactive) {
 			if (target === 'off' || target === 'false' || target === 'stop') {
-				room.stopKickInactive(user, user.can('timer'));
+				var canForceTimer = user.can('timer', null, room);
+				if (room.resetTimer) {
+					room.stopKickInactive(user, canForceTimer);
+					if (canForceTimer) room.send('|inactiveoff|Timer was turned off by staff. Please do not turn it back on until our staff say it\'s okay');
+				}
 			} else if (target === 'on' || target === 'true' || !target) {
 				room.requestKickInactive(user, user.can('timer'));
 			} else {
 				this.sendReply("'" + target + "' is not a recognized timer state.");
 			}
 		} else {
-			this.sendReply("You can only set the timer from inside a room.");
+			this.sendReply("You can only set the timer from inside a battle room.");
 		}
 	},
 
@@ -2197,7 +2189,7 @@ var commands = exports.commands = {
 			this.sendReply("/help OR /h OR /? - Gives you help.");
 		} else if (!target) {
 			this.sendReply("COMMANDS: /nick, /avatar, /rating, /whois, /msg, /reply, /ignore, /away, /back, /timestamps, /highlight");
-			this.sendReply("INFORMATIONAL COMMANDS: /data, /dexsearch, /movesearch, /groups, /faq, /rules, /intro, /tiers, /othermetas, /learn, /analysis, /calc (replace / with ! to broadcast. Broadcasting requires: + % @ & ~)");
+			this.sendReply("INFORMATIONAL COMMANDS: /data, /dexsearch, /movesearch, /groups, /faq, /rules, /intro, /tiers, /othermetas, /learn, /analysis, /calc (replace / with ! to broadcast. Broadcasting requires: + % @ # & ~)");
 			if (user.group !== Config.groupsranking[0]) {
 				this.sendReply("DRIVER COMMANDS: /warn, /mute, /unmute, /alts, /forcerename, /modlog, /lock, /unlock, /announce, /redirect");
 				this.sendReply("MODERATOR COMMANDS: /ban, /unban, /ip");
