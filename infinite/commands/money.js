@@ -146,7 +146,7 @@ module.exports = {
     customsymbol: function(target, room, user) {
         if (!user.canCustomSymbol && user.vip && userid !== user.userid) return this.sendReply('You need to buy this item from the shop.');
         if (!target || target.length > 1) return this.sendReply('/customsymbol [symbol] - Get a custom symbol.');
-        if (target.match(/[A-Za-z\d]+/g) || '?!+%@\u2605&~#'.indexOf(target) >= 0) return this.sendReply('Sorry, but you cannot change your symbol to this for safety/stability reasons.');
+        if (target.match(/[A-Za-z\d]+/g) || '?!+%@\u2605&~#\u03c4\u00a3\u03dd\u03b2\u039e\u03a9\u0398\u03a3\u00a9'.indexOf(target) >= 0) return this.sendReply('Sorry, but you cannot change your symbol to this for safety/stability reasons.');
         user.customSymbol = target;
         user.updateIdentity();
         user.canCustomSymbol = false;
